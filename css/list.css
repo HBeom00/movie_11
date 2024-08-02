@@ -1,0 +1,17 @@
+.card {
+  width: 200px;
+  height: 200px;
+  border: 1px, solid red;
+}
+#cardWrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.movie-card {
+  width: 20%;
+}
+.movie-title {
+  width: 20%;
+}
