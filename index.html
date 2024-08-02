@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>movie_11</title>
+    <script defer src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
   </head>
   <body>
-    <p>11조 레포지토리 입니다.</p>
-    <p>dev branch</p>
+    <!------ header ------>
+    <header id="header">
+      <div id="header-div1">
+        <img
+          id="logo"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAABE9JREFUaEPtmlvoZmMUxn/PnTPNiBBDDkPKZBxTDhFXUhLJhYnJoUnkTBIih9RcYBpTcpiSG6e5Rg4pSiJcEI1iyCnHwYWLx161Pz77v999nnz/Pd+q7+Z71+F91lrvWuvde4vtjLSd4WUOeOwRn0d4HuGReaB1StteBqwEDgT+At6Ln6Q/2vjG9sHAkcARwLfAZ5LebKOjC29jwLavBK4DDk0Yeh5YL+nl1EZs7wVcBlwOHFDC9yewCbhR0pYugOpkagHb3hd4ATi+Tlm+/hJwkaQfpvlzh61vqCPYLpH0ZAv+RqyVgG0fBrwG7NNI279M3wFnSvog/rL9dDihpY5gv1XS/R3kkiJJwLZ3A94HDupo8OMsPY8GLs4ctqGjjhA7V9KLPeT/I1oFONJpVcLQG8Cr+drpwMkJvmeAc4CdS9Z/Bx4Dfgb2AFYDu5TwbQWWS/p6CNClgG2fALxdYiCidr6kjwrncwXwHBCVtwndBKybruy2d8qL4t0lCjZKSjm/ib1/eFKA1wLXFjTFuVwp6asyC7Yj9aNF7V6zg3sk3Z7isf0wcFVhfaukXVshSzCnAEcEo0dOU23VtH1Dlr4PVmxss6TaLLAdFX5pQc9Jkt7qCzoF+Kf8XE3rXyIp/k+S7eVApH2KHsp0XFO36UxPnP0LC3yrJG2sk61bTwF2UVBSk569AxDDQ4oq03kiZDta0c0FJYO0qBTg74E9CwaXSfqiJsJxjjdX8DyR6bi0LgpZPXgqb2fTrFdLivPdi1KAo0JHpZ6mNZIqJyXbUeii4KVoi6T9a5y2Y9YOP8/G1L0LfGdJiimuF6UA3xtTTkHzj9mIuSI149o+BHg3AxwDSxU9IOmWFIPtR4ErCutxTJZKqjoujRyRAhwj5SclGlJ9OObsuDzs18gqRB9+ZBqA7Rg6bgPKnLFBUlxeelPVpFU1/74CTK5yZwPHdNhJTFiPA7/l9SImrSh6ZbRaUvD2pirAkaKf9rYwnILowRf0vTamUjoKR8zLxw6330E0fZPP1b921damaHW1MbRcZdGrM5YCHOlzYp3w/7T+oaSjutpuPGkBd3U10lPujqJ8k6kvZbMx4D5G+gC23XXMPVXS6wucVbaZrkb6AEvJtt2L7TiKMYsH4AUBHU2Ep4FOnDdKwDnQ+7KHjac1OeuLNsJVQEcX4eyhYYy2Z9TVjNGkdB3QMUa4EeZ5hLPpaVEWrUbhDXBj6cNzwAkPzCO8iM9wvLyLNxyVV9jRRHgCxHaMk3fGRaEsq0cHeAIyBXy0gFPARw+4CFzSwhvU2B4A1PXoxpPW2J9pxVvCypdedZ7chuuNXqq3fYi3DlizDTfdR/VaSdd3VZBK6SX5J0uzFuV49XOcpF8GBRzKbB8OPFvyrUdXW33l3gHOk/RlH0VNPmOI77BO6WNkANlNkuILod5UC7i3hRlTMAc8YwEZfDvzCA/u0hlTOI/wjAVk8O38DbE900zAl8L4AAAAAElFTkSuQmCC"
+        />
+        <a id="popural-movie" href=".">인기순위</a>
+        <a id="playing-movie" href=".">현재 상영 중</a>
+        <a id="coming-movie" href=".">상영 예정</a>
+      </div>
+      <div id="header-div2">
+        <button id="search">검색</button>
+        <button id="login">로그인</button>
+        <button id="sign-up">회원가입</button>
+      </div>
+    </header>
+    <!------ popular movie slide ------>
+    <p id="popular-title">인기 영화</p>
+    <div id="slide-box">
+      <div class="slide-wrapper">
+        <ul class="slides"></ul>
+      </div>
+      <button class="prev controls">&lt</button>
+      <button class="next controls">&gt</button>
+    </div>
+
+    <!------ coming movie video ------>
+    <div id="coming-div">
+      <p id="coming-title">예고편</p>
+      <div id="comgin-videos">
+        <iframe
+          id="iframe"
+          width="480"
+          height="275"
+          src="https://www.youtube.com/embed/o9F6G-VCtUU?si=wPJOsH87sdPKP8R1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          id="iframe"
+          width="480"
+          height="275"
+          margin-right="10px"
+          src="https://www.youtube.com/embed/vAwJ4YT1uyg?si=mtRTZDfsKOt6L8y_"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        <iframe
+          width="480"
+          height="275"
+          src="https://www.youtube.com/embed/amI9ujTxtH4?si=V-VA1g6kEb4oBWYB"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
+    <!------ now playing movie ------>
+    <div id="playing-div">
+      <div id="playing-title-box">
+        <p id="playing-title">현재 상영중</p>
+        <a href=".">더보기</a>
+      </div>
+      <div id="movie-list"></div>
+    </div>
   </body>
 </html>
