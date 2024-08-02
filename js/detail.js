@@ -48,7 +48,7 @@ const userComment = document.getElementById("user-comment");
 let isLogin = localStorage.getItem("login");
 if (isLogin === null) {
   document.getElementById("is-login").style.display = "none";
-  document.getElementById("is-logout").style.display = "block";
+  document.getElementById("is-logout").style.display = "flex";
 }
 
 // 댓글 작성
@@ -85,23 +85,34 @@ commentBtn.addEventListener("click", function () {
 async function loadComment() {
   document.getElementById("comment-list").innerHTML = "";
   let docs = await getDocs(collection(db, String(movieId)));
-  docs.forEach((doc) => {
+  await docs.forEach((doc) => {
     let row = doc.data();
     let myComment;
     if (row.id === userId) {
-      myComment = `
-        <button class="like">${row.like}</button>
-          <button class="modify">수정</button>
-          <button class="delete">삭제</button>
+      myComment = ` 
+        <button class="like">
+          <img src="./img/like.png" alt="좋아요" class="off"/>
+          <img src="./img/like_on.png" alt="좋아요" class="on"/>
+          <span>${row.like}</span>
+        </button>
+        <button class="modify">수정</button>
+        <button class="delete">삭제</button>
       `;
     } else {
-      myComment = `<button class="like">${row.like}</button>`;
+      myComment = `
+      <button class="like">
+        <img src="./img/like.png" alt="좋아요" class="off"/>
+        <img src="./img/like_on.png" alt="좋아요" class="on"/>
+        <span>${row.like}</span>
+      </button>`;
     }
     let commentHtml = `
       <li>
         <span class="hide-id">${doc.id}</span>
-        <div class="comment-area">${row.comment}</div>
-        <div class="id">${row.id}</div>
+        <div class="comment-area">
+          <div class="comment">${row.comment}</div>
+          <div class="id">${row.id}</div>
+        </div>
 
         <div class="btn-area">
           ${myComment}
@@ -116,7 +127,7 @@ async function loadComment() {
 // 댓글 수정
 async function modifyComment(btn) {
   let docId = btn.parentElement.parentElement.firstElementChild.innerText;
-  let beforeComment = btn.parentElement.previousElementSibling.previousElementSibling.innerText;
+  let beforeComment = btn.parentElement.previousElementSibling.firstElementChild.innerText;
 
   const newComment = prompt("댓글을 새로 입력하세요.", beforeComment);
   if (!!newComment) {
@@ -149,13 +160,20 @@ async function likeComment(btn) {
     await updateDoc(doc(db, String(movieId), docId), {
       like: increment(1)
     });
-    localStorage.setItem(`${docId}like`, 1);
+    await localStorage.setItem(`${docId}like`, 1);
   } else {
     await updateDoc(doc(db, String(movieId), docId), {
       like: increment(-1)
     });
-    localStorage.removeItem(`${docId}like`);
+    await localStorage.removeItem(`${docId}like`);
   }
+
+  await document.querySelectorAll("button.like").forEach((like) => {
+    let docId = like.parentElement.parentElement.firstElementChild.innerText;
+    let alreadyLike = localStorage.getItem(`${docId}like`);
+
+    alreadyLike === null ? like.classList.remove("on") : like.classList.add("on");
+  });
 }
 
 onSnapshot(collection(db, String(movieId)), (snapshot) => {
@@ -194,9 +212,12 @@ let controlComment = {
 
   _like: function () {
     document.querySelectorAll("button.like").forEach((like) => {
+      let docId = like.parentElement.parentElement.firstElementChild.innerText;
+      let alreadyLike = localStorage.getItem(`${docId}like`);
       like.addEventListener("click", (e) => {
         likeComment(e.target);
       });
+      alreadyLike === null ? like.classList.remove("on") : like.classList.add("on");
     });
   }
 };

@@ -8,7 +8,9 @@ if (isLogin === "yes") {
 }
 
 document.getElementById("logout").addEventListener("click", function () {
-  localStorage.clear();
+  localStorage.removeItem("login");
+  localStorage.removeItem("id");
+  localStorage.removeItem("password");
   alert("로그아웃 되었습니다.");
   window.location.reload();
 });
