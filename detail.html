@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="./js/detail.js"></script>
+  </head>
+  <body>
+    <header id="header">
+        <a href="/index.html" id="logo">로고</a>
+
+        <ul class="category">
+            <li><a href="#none">어쩌고</a></li>
+        </ul>
+
+        <div id="util">
+            <a href="/login.html" id="login">login</a>
+            <a href="javascript:;" id="logout" style="display:none;">logout</a>
+
+            <div id="search"></div>
+        </div>
+    </header>
+    <div class="comment-box">
+      <ul id="comment-list"></ul>
+
+        <div id="is-login">
+            <input type="text" id="user-comment"></input>
+            <button id="comment-btn">send</button>
+        </div>
+
+        <div id="is-logout" style="display: none;">
+            회원에게만 댓글 작성 권한이 있습니다.
+        </div>
+
+    </div>
+  </body>
+</html>
