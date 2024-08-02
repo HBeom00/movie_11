@@ -4,23 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./img/icon.ico" />
+
+    <!-- JS -->
+    <script type="module" src="./js/common.js"></script>
     <script type="module" src="./js/detail.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
   </head>
   <body>
     <header id="header">
-        <a href="/index.html" id="logo">로고</a>
+      <div class="inner">
+        <a href="/index.html" id="logo"><img src="./img//logo.gif" alt="로고" /></a>
 
-        <ul class="category">
-            <li><a href="#none">어쩌고</a></li>
+        <ul id="category">
+          <li><a href="#none">Popular</a></li>
+          <li><a href="#none">Now Playing</a></li>
+          <li><a href="#none">Upcoming</a></li>
         </ul>
 
         <div id="util">
-            <a href="/login.html" id="login">login</a>
-            <a href="javascript:;" id="logout" style="display:none;">logout</a>
+          <a href="/login.html" id="login">login</a>
+          <a href="javascript:;" id="logout" style="display: none">logout</a>
 
-            <div id="search"></div>
+          <div id="search">
+            <img src="./img//search.png" alt="검색" class="open" />
+            <img src="./img//close.png" alt="닫기" class="close" />
+          </div>
         </div>
+      </div>
+      <div id="search-area">
+        <input type="text" name="search-input" id="search-input" />
+        <button><img src="./img//search.svg" alt="검색" /></button>
+      </div>
     </header>
+    <span class="header-blank"></span>
     <div class="comment-box">
       <ul id="comment-list"></ul>
 
@@ -30,7 +52,7 @@
         </div>
 
         <div id="is-logout" style="display: none;">
-            회원에게만 댓글 작성 권한이 있습니다.
+            리뷰를 작성하시려면 로그인 해주세요.
         </div>
 
     </div>

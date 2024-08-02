@@ -1,16 +1,3 @@
-// 전체 공통 JS
-let isLogin = localStorage.getItem("login");
-if (isLogin === "yes") {
-  document.getElementById("login").style.display = "none";
-  document.getElementById("logout").style.display = "block";
-}
-
-document.getElementById("logout").addEventListener("click", function () {
-  localStorage.clear();
-  alert("로그아웃 되었습니다.");
-  window.location.reload();
-});
-
 // TMDB API
 const API_KEY = "d235a0d6390e11fb07dd3329c8492501";
 const URL = `https://api.themoviedb.org/3/movie/533535?api_key=${API_KEY}&language=ko-KR`;
@@ -58,6 +45,7 @@ const userPassword = localStorage.getItem("password");
 const userComment = document.getElementById("user-comment");
 
 // 로그인 여부에 따라 댓글 입력창 출력
+let isLogin = localStorage.getItem("login");
 if (isLogin === null) {
   document.getElementById("is-login").style.display = "none";
   document.getElementById("is-logout").style.display = "block";
