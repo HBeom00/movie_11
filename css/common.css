@@ -1,9 +1,15 @@
 body {
   opacity: 0;
 }
+#wrap {
+  width: 92%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
 
 /* 상단 */
 #header {
+  z-index: 101;
   position: fixed;
   top: 0;
   left: 0;

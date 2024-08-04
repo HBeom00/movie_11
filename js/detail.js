@@ -1,14 +1,74 @@
 // TMDB API
+const movieId = location.search.replace("?", "");
 const API_KEY = "d235a0d6390e11fb07dd3329c8492501";
-const URL = `https://api.themoviedb.org/3/movie/533535?api_key=${API_KEY}&language=ko-KR`;
+const detailApi = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=ko-KR`; //영화 상세 API
+const creditApi = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=ko-KR`;
 
-let movieId;
-await fetch(URL)
+/* Detail */
+fetch(detailApi)
+  .then((response) => response.json())
+  .then((details) => {
+    const score = Math.round(details.vote_average / 2);
+    document.getElementById("release-date").innerText = details.release_date;
+    document.querySelector("#title h2").innerText = details.title;
+    document.getElementById(
+      "vote"
+    ).innerHTML = `<img src="./img/popcorn-${score}.png" alt="${score}점">(${details.vote_average})`;
+    document.getElementById("description").innerText = details.overview;
+  });
+
+/* Credits */
+fetch(creditApi)
   .then((response) => response.json())
   .then((response) => {
-    movieId = response.id;
+    const cast = response.cast;
+    cast.map((actor) => {
+      if (actor.known_for_department === "Acting") {
+        const actorProfile = document.createElement("div");
+        actorProfile.className = "actor";
+        actorProfile.innerHTML = `
+          <div class="profile"><img src="https://image.tmdb.org/t/p/original${actor.profile_path}" alt="${actor.name}" onerror="this.src='https://placehold.co/400?text=no+image&font=roboto'"></div>
+          <div class="character">${actor.character}</div>
+          <div class="name">${actor.name}</div>
+        `;
+
+        document.getElementById("actor-list").append(actorProfile);
+      }
+    });
   })
   .catch((err) => console.error(err));
+
+const actorList = document.getElementById("actor-list");
+actorList.addEventListener("wheel", function (e) {
+  e.preventDefault();
+  actorList.scrollLeft += e.deltaY > 0 ? e.deltaY + 100 : e.deltaY - 100;
+});
+
+let isDown = false;
+let startX;
+let scrollLeft;
+actorList.addEventListener("mousedown", (e) => {
+  isDown = true;
+  startX = e.pageX - actorList.offsetLeft;
+  scrollLeft = actorList.scrollLeft;
+});
+actorList.addEventListener("mouseleave", () => {
+  isDown = false;
+});
+actorList.addEventListener("mouseup", () => {
+  isDown = false;
+});
+actorList.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - actorList.offsetLeft;
+  const walk = x - startX;
+  actorList.scrollLeft = scrollLeft - walk;
+});
+
+/**************************/
+/* 파이어베이스 이용한 댓글 */
+/**************************/
 
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -92,7 +152,7 @@ async function loadComment() {
       myComment = ` 
         <button class="like">
           <img src="./img/like.png" alt="좋아요" class="off"/>
-          <img src="./img/like_on.png" alt="좋아요" class="on"/>
+          <img src="./img/like-on.png" alt="좋아요" class="on"/>
           <span>${row.like}</span>
         </button>
         <button class="modify">수정</button>
@@ -102,7 +162,7 @@ async function loadComment() {
       myComment = `
       <button class="like">
         <img src="./img/like.png" alt="좋아요" class="off"/>
-        <img src="./img/like_on.png" alt="좋아요" class="on"/>
+        <img src="./img/like-on.png" alt="좋아요" class="on"/>
         <span>${row.like}</span>
       </button>`;
     }
@@ -176,6 +236,7 @@ async function likeComment(btn) {
   });
 }
 
+// 댓글 실시간 갱신
 onSnapshot(collection(db, String(movieId)), (snapshot) => {
   snapshot.docChanges().forEach(async (change) => {
     if (change.type === "modified") {

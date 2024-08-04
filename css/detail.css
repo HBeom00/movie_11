@@ -1,3 +1,52 @@
+div#wrap {
+  margin-bottom: 80px;
+}
+
+/* 배우 목록 */
+div#actor-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px 0;
+}
+div#actor-list::-webkit-scrollbar {
+  height: 6px;
+}
+div#actor-list::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: #ffe4a8;
+}
+div#actor-list::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #ed8e00;
+}
+div#actor-list div.actor {
+  pointer-events: none;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div#actor-list .actor .profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 0;
+  padding: 50% 0;
+  border-radius: 100%;
+  overflow: hidden;
+}
+div#actor-list .actor .profile img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
 /* 리뷰 */
 div.comment-box {
   width: 80%;

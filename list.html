@@ -10,12 +10,12 @@
 
     <!-- JS -->
     <script type="module" src="./js/common.js"></script>
-    <script type="module" src="./js/detail.js"></script>
+    <script src="./js/list.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/detail.css" />
+    <link rel="stylesheet" href="./css/list.css" />
   </head>
   <body>
     <header id="header">
@@ -23,9 +23,9 @@
         <a href="/index.html" id="logo"><img src="./img//logo.gif" alt="로고" /></a>
 
         <ul id="category">
-          <li><a href="#none">Popular</a></li>
-          <li><a href="#none">Now Playing</a></li>
-          <li><a href="#none">Upcoming</a></li>
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
         </ul>
 
         <div id="util">
@@ -46,41 +46,7 @@
     <span class="header-blank"></span>
 
     <div id="wrap">
-      <!-- 상세 정보 -->
-      <div id="detail">
-        <!-- 영화 포스터 -->
-        <div id="movie-poster"></div>
-
-        <div class="info-area">
-          <!-- 영화 정보 -->
-          <div id="movie-info">
-            <div id="release-date"></div>
-            <div id="title">
-              <h2></h2>
-              <span id="vote"></span>
-            </div>
-            <div id="description"></div>
-          </div>
-
-          <!-- 등장인물 -->
-          <div class="credit">
-            <div class="sub-title">등장인물</div>
-            <div id="actor-list"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 댓글 -->
-      <div class="comment-box">
-        <ul id="comment-list"></ul>
-
-        <div id="is-login">
-          <input type="text" id="user-comment" />
-          <button id="comment-btn">send</button>
-        </div>
-
-        <div id="is-logout" style="display: none">리뷰를 작성하시려면 로그인 해주세요.</div>
-      </div>
+      <ul id="movie-list"></ul>
     </div>
   </body>
 </html>
