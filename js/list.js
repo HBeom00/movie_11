@@ -22,9 +22,10 @@ function createMovieCard(movie) {
   card.className = "movie-card";
   card.innerHTML = `
    <div class="card-contents">
-   <div class="movie-title">
+
    
-  <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+   
+  <img class='movie-poster' src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
  <h3>${movie.title}</h3>
  </div>
   `;
