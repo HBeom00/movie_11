@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/search.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+  </head>
+  <body>
+    <div class="search-container">
+      <div class="search">
+        <input class="input" id="search_movie" type="text" required placeholder="영화를 검색하세요" />
+        <button class="search-button" onclick="initializeSearch()">검색</button>
+      </div>
+    </div>
+    <div class="movie-wrap">
+      <div id="result-count-container">
+        <div id="result-count"></div>
+        <div id="load-more"></div>
+      </div>
+      <div class="searchResult" id="searchResult">
+        <!-- 영화들 나오는 곳 -->
+      </div>
+    </div>
+    <script type="text/javascript" src="/js/search.js"></script>
+  </body>
+</html>
