@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>movie_11</title>
+    <script src="http://www.youtube.com/iframe_api"></script>
     <script defer src="./js/main.js"></script>
+    <script type="module" src="./js/youtube.js"></script>
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/reset.css" />
   </head>
@@ -27,7 +29,7 @@
       </div>
     </header>
     <!------ popular movie slide ------>
-    <p id="popular-title">인기 영화</p>
+    <p id="popular-title">박스오피스</p>
     <div id="slide-box">
       <div class="slide-wrapper">
         <ul class="slides"></ul>
@@ -37,52 +39,36 @@
     </div>
 
     <!------ coming movie video ------>
-    <div id="coming-div">
-      <p id="coming-title">예고편</p>
-      <div id="comgin-videos">
-        <iframe
-          id="iframe"
-          width="480"
-          height="275"
-          src="https://www.youtube.com/embed/o9F6G-VCtUU?si=wPJOsH87sdPKP8R1"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-        <iframe
-          id="iframe"
-          width="480"
-          height="275"
-          margin-right="10px"
-          src="https://www.youtube.com/embed/vAwJ4YT1uyg?si=mtRTZDfsKOt6L8y_"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-        <iframe
-          width="480"
-          height="275"
-          src="https://www.youtube.com/embed/amI9ujTxtH4?si=V-VA1g6kEb4oBWYB"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
+    <div id="preview-div">
+      <p id="preview-title">예고편</p>
+      <div id="youtube"></div>
     </div>
 
-    <!------ now playing movie ------>
-    <div id="playing-div">
-      <div id="playing-title-box">
-        <p id="playing-title">현재 상영중</p>
+    <!------ 인기 영화 목록 ------>
+    <div class="playing-div">
+      <div class="playing-title-box">
+        <p class="playing-title">인기 영화</p>
         <a href=".">더보기</a>
       </div>
-      <div id="movie-list"></div>
+      <div id="c" class="movie-list"></div>
+    </div>
+
+    <!------ 현재 상영 중 영화 목록 ------>
+    <div class="playing-div">
+      <div class="playing-title-box">
+        <p class="playing-title">현재 상영 중</p>
+        <a href=".">더보기</a>
+      </div>
+      <div id="a" class="movie-list"></div>
+    </div>
+
+    <!------ 상영 예정 영화 목록 ------>
+    <div class="playing-div">
+      <div class="playing-title-box">
+        <p class="playing-title">상영 예정</p>
+        <a href=".">더보기</a>
+      </div>
+      <div id="b" class="movie-list"></div>
     </div>
   </body>
 </html>
