@@ -31,3 +31,17 @@ window.onload = function () {
     }
   });
 };
+
+let beforeY = 0;
+document.addEventListener("scroll", function (e) {
+  if (beforeY < window.scrollY) {
+    document.getElementById("header").classList.remove("on");
+    document.getElementById("header").style.transform = "translateY(-100%)";
+  } else {
+    document.getElementById("header").classList.add("on");
+    document.getElementById("header").style.transform = "translateY(0)";
+  }
+
+  window.scrollY === 0 && document.getElementById("header").classList.remove("on");
+  beforeY = window.scrollY;
+});

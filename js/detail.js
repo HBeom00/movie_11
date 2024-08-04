@@ -3,19 +3,39 @@ const movieId = location.search.replace("?", "");
 const API_KEY = "d235a0d6390e11fb07dd3329c8492501";
 const detailApi = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=ko-KR`; //영화 상세 API
 const creditApi = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=ko-KR`;
+const imgApi = `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&include_image_language=null`;
 
 /* Detail */
 fetch(detailApi)
   .then((response) => response.json())
   .then((details) => {
-    const score = Math.round(details.vote_average / 2);
-    document.getElementById("release-date").innerText = details.release_date;
-    document.querySelector("#title h2").innerText = details.title;
     document.getElementById(
-      "vote"
-    ).innerHTML = `<img src="./img/popcorn-${score}.png" alt="${score}점">(${details.vote_average})`;
-    document.getElementById("description").innerText = details.overview;
-  });
+      "bg-img"
+    ).innerHTML = `<img src="https://image.tmdb.org/t/p/original${details.backdrop_path}" />`;
+    document.getElementById(
+      "movie-poster"
+    ).innerHTML = `<img src="https://image.tmdb.org/t/p/original${details.poster_path}" />`;
+
+    const score = Math.round(details.vote_average / 2);
+    let infoHtml = `
+      <div class="title">${details.title}</div>
+      <ul>
+        <li>개봉일 : <span class="release-date">${details.release_date.replaceAll("-", ".")}</span></li>
+        <li>/</li>
+        <li>러닝타임 : <span class="runtime">${details.runtime}분</span></li>
+      </ul>
+      <div class="vote"><img src="./img/popcorn-${score}.png" alt="${score}점">(${details.vote_average})</div>
+      <div class="description">${details.overview}</div>
+      <ul id="genre"></ul>
+      `;
+    document.getElementById("movie-info").innerHTML = infoHtml;
+    details.genres.map((item) => {
+      let genre = document.createElement("li");
+      genre.innerText = `#${item.name}`;
+      document.getElementById("genre").append(genre);
+    });
+  })
+  .catch((err) => console.error(err));
 
 /* Credits */
 fetch(creditApi)

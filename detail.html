@@ -13,6 +13,12 @@
     <script type="module" src="./js/detail.js"></script>
 
     <!-- CSS -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/detail.css" />
@@ -23,9 +29,9 @@
         <a href="/index.html" id="logo"><img src="./img//logo.gif" alt="로고" /></a>
 
         <ul id="category">
-          <li><a href="#none">Popular</a></li>
-          <li><a href="#none">Now Playing</a></li>
-          <li><a href="#none">Upcoming</a></li>
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
         </ul>
 
         <div id="util">
@@ -48,30 +54,28 @@
     <div id="wrap">
       <!-- 상세 정보 -->
       <div id="detail">
-        <!-- 영화 포스터 -->
-        <div id="movie-poster"></div>
+        <div id="bg-img"></div>
 
-        <div class="info-area">
-          <!-- 영화 정보 -->
-          <div id="movie-info">
-            <div id="release-date"></div>
-            <div id="title">
-              <h2></h2>
-              <span id="vote"></span>
+        <div class="inner">
+          <!-- 영화 포스터 -->
+          <div id="movie-poster"></div>
+
+          <div class="info-area">
+            <!-- 영화 정보 -->
+            <div id="movie-info"></div>
+
+            <!-- 등장인물 -->
+            <div class="credit">
+              <div class="sub-title">등장인물</div>
+              <div id="actor-list"></div>
             </div>
-            <div id="description"></div>
-          </div>
-
-          <!-- 등장인물 -->
-          <div class="credit">
-            <div class="sub-title">등장인물</div>
-            <div id="actor-list"></div>
           </div>
         </div>
       </div>
 
       <!-- 댓글 -->
       <div class="comment-box">
+        <div class="sub-title">Review</div>
         <ul id="comment-list"></ul>
 
         <div id="is-login">

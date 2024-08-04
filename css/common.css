@@ -1,5 +1,7 @@
 body {
+  min-height: 100vh;
   opacity: 0;
+  background: linear-gradient(135deg, #252031 10%, #000 100%);
 }
 #wrap {
   width: 92%;
@@ -14,7 +16,8 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: #252031;
+  transition: 0.5s;
 }
 .header-blank {
   display: block;
@@ -28,8 +31,7 @@ body {
   justify-content: center;
   padding: 0 24px;
   height: 80px;
-  background-color: #fff;
-  border-bottom: 1px solid #1a1a1a;
+  background: #252031;
   overflow: hidden;
 }
 
@@ -54,7 +56,7 @@ body {
 #header #category a {
   position: relative;
   display: block;
-  color: #1a1a1a;
+  color: #fff;
   font-size: 18px;
   line-height: 24px;
   font-weight: 700;
@@ -64,7 +66,7 @@ body {
   display: block;
   width: 0;
   height: 2px;
-  background-color: #000;
+  background-color: #fff;
   margin-top: 4px;
   position: absolute;
   top: 100%;
@@ -88,7 +90,7 @@ body {
   gap: 32px;
 }
 #header #util a {
-  color: #1a1a1a;
+  color: #fff;
   font-size: 16px;
 }
 #header #util #search {
@@ -116,8 +118,7 @@ div#search-area {
   align-items: center;
   justify-content: center;
   padding: 24px 0;
-  margin-top: 1px;
-  background-color: #fff;
+  background: linear-gradient(135deg, #252031 10%, #000 100%);
   width: 100%;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   transform: translateY(-100%);

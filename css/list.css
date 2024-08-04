@@ -40,3 +40,8 @@ ul#movie-list li a .vote {
 ul#movie-list li a .vote img {
   height: 24px;
 }
+
+div#more-btn {
+  color: #fff;
+  font-size: 48px;
+}
