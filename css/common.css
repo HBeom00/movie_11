@@ -165,6 +165,7 @@ div#title {
 div#title h2 {
   font-size: 38px;
   font-weight: 700;
+  color: #fff;
 }
 
 div.join-box,
@@ -179,6 +180,7 @@ div.login-box {
 div#member-area label {
   display: block;
   width: 100%;
+  color: #fff;
   font-weight: 700;
   margin-bottom: 12px;
 }
@@ -205,15 +207,27 @@ div#member-area .member-btn {
   width: 100%;
   height: 60px;
   margin-top: 40px;
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: #cabdeb;
+  border: 0;
+  color: #252031;
   font-size: 16px;
   font-weight: 700;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+div#member-area .member-btn:hover {
+  background-color: #252031;
+  color: #fff;
 }
 
 div#member-area a.member-btn {
   margin-top: 16px;
   background-color: #fff;
-  border: 2px solid #1a1a1a;
+  border: 2px solid #cabdeb;
   color: #1a1a1a;
+  border-radius: 4px;
+}
+div#member-area a.member-btn:hover {
+  background-color: #cabdeb;
+  color: #252031;
 }

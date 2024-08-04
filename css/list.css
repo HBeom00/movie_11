@@ -30,18 +30,55 @@ ul#movie-list li a .poster {
 }
 ul#movie-list li a .poster img {
   width: 100%;
+  transition: 0.5s;
+}
+ul#movie-list li a .poster:hover img {
+  transform: scale(1.1);
+}
+
+ul#movie-list li a .info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  color: #fff;
+}
+ul#movie-list li a .info .release-date {
+  font-size: 14px;
+}
+ul#movie-list li a .info .title {
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 ul#movie-list li a .vote {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 ul#movie-list li a .vote img {
-  height: 24px;
+  height: 18px;
 }
 
 div#more-btn {
-  color: #fff;
-  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 24px 80px;
+  margin: 140px auto;
+  color: #514d5a;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(202, 189, 235, 1);
+  border-radius: 60px;
+  transition: 0.3s;
+}
+
+div#more-btn:hover {
+  background-color: #514d5a;
+  color: rgba(202, 189, 235, 1);
 }

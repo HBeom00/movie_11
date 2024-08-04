@@ -31,7 +31,21 @@ window.onload = function () {
     }
   });
 };
+function onSearch() {
+  let keyword = document.getElementById("search-input").value;
+  if (typeof keyword === null || keyword === undefined || keyword === "") {
+    alert("영화 제목을 입력하세요.");
+  } else {
+    window.location = `/search.html?${keyword}`;
+  }
+}
+document.getElementById("search-input").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    onSearch();
+  }
+});
 
+// 상단 스크롤 이벤트
 let beforeY = 0;
 document.addEventListener("scroll", function (e) {
   if (beforeY < window.scrollY) {

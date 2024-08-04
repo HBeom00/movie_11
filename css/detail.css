@@ -197,14 +197,14 @@ div.comment-box {
 }
 div.comment-box .sub-title {
   text-align: left;
-  font-size: 48px;
+  font-size: 36px;
   color: #fff;
   font-weight: 700;
   margin-bottom: 24px;
 }
 div.comment-box ul#comment-list {
   max-height: 400px;
-  min-height: 80px;
+  min-height: 200px;
   overflow-y: auto;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
@@ -237,7 +237,10 @@ div.comment-box .comment-area .id {
 /* 리뷰 : 버튼 */
 div.btn-area {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  height: 45px;
   gap: 4px;
 }
 button.like {
@@ -314,21 +317,47 @@ div.btn-area .delete {
 }
 
 /* 리뷰 작성 */
+div.comment-box #is-login,
+div.comment-box #is-logout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 60px;
+  margin-top: 16px;
+  padding: 16px 24px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+}
+div.comment-box #is-logout {
+  font-weight: 700;
+  justify-content: center;
+  font-size: 18px;
+  color: #252031;
+}
+div.comment-box #is-logout a {
+  font-size: 18px;
+  margin: 0 8px;
+  color: #551a8b;
+}
 div.comment-box #is-login input {
-  width: 80%;
+  flex: 1;
   height: 40px;
   outline: none;
   padding: 0 12px;
   line-height: 40px;
+  border-radius: 4px;
+  border: 0;
+  outline: none;
 }
 div.comment-box #is-login button {
-  background-color: #1a1a1a;
+  background-color: #252031;
   color: #fff;
-  border: 1px solid #1a1a1a;
+  border: 1px solid #252031;
   width: auto;
   height: 40px;
   padding: 0 24px;
-  border-radius: 0;
+  border-radius: 4px;
   margin-left: 12px;
+  font-size: 16px;
   cursor: pointer;
 }
