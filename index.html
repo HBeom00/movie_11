@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
   </head>
   <body>
-    <!------ header ------>
+    <!------ 헤더 ------>
     <header id="header">
       <div id="header-div1">
         <img
@@ -28,47 +28,44 @@
         <button id="sign-up">회원가입</button>
       </div>
     </header>
-    <!------ popular movie slide ------>
-    <p id="popular-title">박스오피스</p>
-    <div id="slide-box">
-      <div class="slide-wrapper">
-        <ul class="slides"></ul>
-      </div>
-      <button class="prev controls">&lt</button>
-      <button class="next controls">&gt</button>
+    <!------ 캐러셀 기능 ------>
+    <div class="carousel">
+      <ul class="slides"></ul>
+      <button class="nav prev">❮</button>
+      <button class="nav next">❯</button>
+      <div class="pagination"></div>
     </div>
-
-    <!------ coming movie video ------>
+    <!------ 예고편 유튜브 영상 ------>
     <div id="preview-div">
       <p id="preview-title">예고편</p>
       <div id="youtube"></div>
     </div>
 
     <!------ 인기 영화 목록 ------>
-    <div class="playing-div">
-      <div class="playing-title-box">
-        <p class="playing-title">인기 영화</p>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">인기 영화</p>
         <a href=".">더보기</a>
       </div>
-      <div id="c" class="movie-list"></div>
+      <div id="popular-list" class="movie-list"></div>
     </div>
 
     <!------ 현재 상영 중 영화 목록 ------>
-    <div class="playing-div">
-      <div class="playing-title-box">
-        <p class="playing-title">현재 상영 중</p>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">현재 상영 중</p>
         <a href=".">더보기</a>
       </div>
-      <div id="a" class="movie-list"></div>
+      <div id="playing-list" class="movie-list"></div>
     </div>
 
     <!------ 상영 예정 영화 목록 ------>
-    <div class="playing-div">
-      <div class="playing-title-box">
-        <p class="playing-title">상영 예정</p>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">상영 예정</p>
         <a href=".">더보기</a>
       </div>
-      <div id="b" class="movie-list"></div>
+      <div id="coming-list" class="movie-list"></div>
     </div>
   </body>
 </html>

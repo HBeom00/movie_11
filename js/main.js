@@ -1,91 +1,17 @@
-// API KEY 값
 const API_KEY = "55c98ffe62df5cbb6d68882dde4d2f2c";
-// 인기 영화 URL
 const popularURL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-US&page=1`;
-// 현재 상영 영화 URL
 const playingURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-US&page=1`;
-// 상영 예정 URL
 const comingURL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=ko-KR&page=1`;
 
-// 인기 영화
 fetch(popularURL)
   .then((response) => response.json())
   .then((data) => {
     const movies = data.results;
     const $ul = document.querySelector(".slides");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    let currentIdx = 0;
+    const $pagination = document.querySelector(".pagination");
 
-    movies.forEach((el) => {
-      const $li = document.createElement("li");
-      $li.classList.add("movie");
-
-      $li.innerHTML = `<img
-                class="popular-img"
-                src="https://image.tmdb.org/t/p/w500/${el.poster_path}"
-                alt="img"
-              />`;
-      $ul.appendChild($li);
-    });
-
-    let movie = document.querySelectorAll(".movie");
-    let slideCount = movie.length;
-
-    makeClone();
-    function makeClone() {
-      for (let i = 0; i < slideCount; i++) {
-        let cloneSlide = movie[i].cloneNode(true);
-        cloneSlide.classList.add("clone");
-        $ul.appendChild(cloneSlide);
-      }
-      for (let i = slideCount - 1; i >= 0; i--) {
-        let cloneSlide = movie[i].cloneNode(true);
-        cloneSlide.classList.add("clone");
-        $ul.prepend(cloneSlide);
-      }
-      setInitial();
-
-      setTimeout(function () {
-        $ul.classList.add("animate");
-      }, 100);
-    }
-
-    function setInitial() {
-      let initialTranslateVal = -6200;
-      $ul.style.transform = `translateX(${initialTranslateVal}px)`;
-    }
-
-    nextBtn.addEventListener("click", () => {
-      moveSlide(currentIdx + 1);
-    });
-    prevBtn.addEventListener("click", () => {
-      moveSlide(currentIdx - 1);
-    });
-
-    function moveSlide(num) {
-      $ul.style.left = -num * 1550 + "px";
-      currentIdx = num;
-
-      if (currentIdx === 4 || currentIdx === -4) {
-        setTimeout(function () {
-          $ul.classList.remove("animate");
-          $ul.style.left = "0px";
-          currentIdx = 0;
-        }, 500);
-        setTimeout(function () {
-          $ul.classList.add("animate");
-        }, 600);
-      }
-    }
-    // $ul.addEventListener("mouseover", function () {
-    //   stopSlide();
-    // });
-
-    // $ul.addEventListener("mouseout", function () {
-    //   autoSlide();
-    // });
-    const list = document.querySelector("#c");
+    // 인기 영화 목록
+    const list = document.querySelector("#popular-list");
 
     for (let i = 5; i < 10; i++) {
       const $div = document.createElement("div");
@@ -97,14 +23,110 @@ fetch(popularURL)
               />`;
       list.appendChild($div);
     }
+
+    // 캐러셀 리스트
+    movies.forEach((movie, index) => {
+      const $li = document.createElement("li");
+      $li.classList.add("movie");
+      $li.innerHTML = `<img
+                class="background-img"
+                src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}"
+                alt="${movie.title}"
+              />
+              <img class="poster-img" src="https://image.tmdb.org/t/p/original/${movie.poster_path}"/>
+              <div class="movie-title">${movie.title}</div>
+              <div class="movie-content">${movie.overview}</div>
+              <button class="movie-detail">상세 정보</button>
+              `;
+      $ul.appendChild($li);
+
+      // 페이지네이션
+      const $dot = document.createElement("div");
+      $dot.classList.add("dot");
+      if (index === 0) $dot.classList.add("active");
+      $dot.addEventListener("click", () => moveToSlide(index + 1));
+      $pagination.appendChild($dot);
+    });
+
+    // 무한 캐러셀 초기화
+    initCarousel();
   })
   .catch((error) => console.error("Error:", error));
 
-// 현재 상영 중
+function initCarousel() {
+  const $ul = document.querySelector(".slides");
+  const $slides = document.querySelectorAll(".slides .movie");
+  const $dots = document.querySelectorAll(".pagination .dot");
+  let index = 1;
+
+  // 첫 번째와 마지막 슬라이드 복제하여 무한 루프 설정
+  const firstClone = $slides[0].cloneNode(true);
+  const lastClone = $slides[$slides.length - 1].cloneNode(true);
+
+  $ul.appendChild(firstClone);
+  $ul.insertBefore(lastClone, $slides[0]);
+
+  const totalSlides = $slides.length + 2;
+  $ul.style.transform = `translateX(-${100}%)`;
+
+  function moveToSlide(newIndex) {
+    $ul.style.transition = "transform 0.5s ease-in-out";
+    $ul.style.transform = `translateX(-${newIndex * 100}%)`;
+    index = newIndex;
+
+    if (index === totalSlides - 1) {
+      setTimeout(() => {
+        $ul.style.transition = "none";
+        index = 1;
+        $ul.style.transform = `translateX(-${index * 100}%)`;
+      }, 500);
+    }
+
+    if (index === 0) {
+      setTimeout(() => {
+        $ul.style.transition = "none";
+        index = totalSlides - 2;
+        $ul.style.transform = `translateX(-${index * 100}%)`;
+      }, 500);
+    }
+    updateDots();
+    resetInterval();
+  }
+
+  function updateDots() {
+    $dots.forEach((dot) => dot.classList.remove("active"));
+    if (index === totalSlides - 1) {
+      $dots[0].classList.add("active");
+    } else if (index === 0) {
+      $dots[$dots.length - 1].classList.add("active");
+    } else {
+      $dots[index - 1].classList.add("active");
+    }
+  }
+
+  function moveToNextSlide() {
+    if (index < totalSlides - 1) {
+      moveToSlide(index + 1);
+    }
+  }
+
+  function moveToPreviousSlide() {
+    if (index > 0) {
+      moveToSlide(index - 1);
+    }
+  }
+
+  document.querySelector(".next").addEventListener("click", moveToNextSlide);
+  document.querySelector(".prev").addEventListener("click", moveToPreviousSlide);
+
+  setInterval(moveToNextSlide, 3000);
+}
+
+// 현재 상영 중 영화 목록
 fetch(playingURL)
   .then((response) => response.json())
   .then((data) => {
-    const list = document.querySelector("#a");
+    const list = document.querySelector("#playing-list");
     const movies = data.results;
 
     for (let i = 10; i < 15; i++) {
@@ -120,11 +142,11 @@ fetch(playingURL)
   })
   .catch((error) => console.error("Error:", error));
 
-// 상영 예정
+// 상영 예정 영화 목록
 fetch(comingURL)
   .then((response) => response.json())
   .then((data) => {
-    const list = document.querySelector("#b");
+    const list = document.querySelector("#coming-list");
     const movies = data.results;
 
     for (let i = 15; i < 20; i++) {
