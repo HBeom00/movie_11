@@ -41,7 +41,6 @@ fetch(detailApi)
 fetch(imgApi)
   .then((response) => response.json())
   .then((still) => {
-    console.log(still.backdrops);
     for (let i = 0; i < 5; i++) {
       stillCut(still.backdrops[i].file_path);
     }
