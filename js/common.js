@@ -1,5 +1,19 @@
 // 전체 공통 JS
 
+// 로고 타이핑 효과
+const logoText = "let movie = null;";
+const logo = document.getElementById("logo");
+let i = 0;
+function typing() {
+  let txt = logoText[i++];
+  logo.innerHTML += txt;
+  if (i > logoText.length) {
+    logo.textContent = "";
+    i = 0;
+  }
+}
+setInterval(typing, 300);
+
 // 로그인 여부 확인
 let isLogin = localStorage.getItem("login");
 if (isLogin === "yes") {

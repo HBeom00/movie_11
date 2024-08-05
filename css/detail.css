@@ -140,7 +140,6 @@ div.credit .sub-title {
 div#actor-list {
   position: relative;
   display: flex;
-  align-items: center;
   flex-wrap: nowrap;
   gap: 12px;
   overflow-x: auto;

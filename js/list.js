@@ -16,7 +16,7 @@ let loadMovie = () => {
         movieCard.classList = "card";
         movieCard.innerHTML = `
         <a href="/detail.html?${movie.id}">
-          <div class="poster"><img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt=""></div>
+          <div class="poster"><img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" onerror="this.src='./img/no-img.png'" alt="${movie.title} 포스터"></div>
           <div class="info">
             <div class="release-date">${movie.release_date}</div>
             <div class="title">${movie.title}</div>
@@ -31,16 +31,25 @@ let loadMovie = () => {
         document.getElementById("movie-list").append(movieCard);
       });
 
+      if (sessionStorage.getItem(category) !== null) {
+        while (nowPage < sessionStorage.getItem(category)) {
+          nowPage++;
+          loadMovie();
+        }
+      }
+
       if (nowPage < data.total_pages) {
         let moreMovie = document.createElement("div");
         moreMovie.id = "more-btn";
-        moreMovie.innerText = "More View";
-
+        moreMovie.innerText = `Load More ( ${nowPage} / ${data.total_pages} )`;
+        document.getElementById("more-btn") !== null && document.getElementById("more-btn").remove();
         document.getElementById("wrap").append(moreMovie);
 
         document.getElementById("more-btn").addEventListener("click", () => {
           document.getElementById("more-btn").remove();
           nowPage++;
+          sessionStorage.setItem(category, nowPage);
+
           loadMovie();
         });
       }

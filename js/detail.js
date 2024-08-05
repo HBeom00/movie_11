@@ -37,6 +37,24 @@ fetch(detailApi)
   })
   .catch((err) => console.error(err));
 
+/* 스틸컷 */
+fetch(imgApi)
+  .then((response) => response.json())
+  .then((still) => {
+    for (let i = 0; i < 5; i++) {
+      stillCut(still.backdrops[i].file_path);
+    }
+  });
+
+function stillCut(img) {
+  const imgs = document.createElement("div");
+  imgs.className = "still-cut";
+  imgs.innerHTML = `
+      <img src="https://image.tmdb.org/t/p/w500${img}" alt="스틸컷 이미지"/>
+  `;
+  document.getElementById("still").append(imgs);
+}
+
 /* Credits */
 fetch(creditApi)
   .then((response) => response.json())
