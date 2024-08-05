@@ -107,18 +107,22 @@ function initCarousel() {
     if (index < totalSlides - 1) {
       moveToSlide(index + 1);
     }
+    clearInterval(autoslide);
+    autoslide = setInterval(moveToNextSlide, 3000);
   }
 
   function moveToPrevSlide() {
     if (index > 0) {
       moveToSlide(index - 1);
     }
+    clearInterval(autoslide);
+    autoslide = setInterval(moveToNextSlide, 3000);
   }
 
   document.querySelector(".next").addEventListener("click", moveToNextSlide);
   document.querySelector(".prev").addEventListener("click", moveToPrevSlide);
 
-  setInterval(moveToNextSlide, 3000);
+  let autoslide = setInterval(moveToNextSlide, 3000);
 }
 
 // 현재 상영 중 영화 목록
