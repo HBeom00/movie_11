@@ -37,22 +37,23 @@ fetch(detailApi)
   })
   .catch((err) => console.error(err));
 
-//상세정보 스틸컷
-fetch(`https://api.themoviedb.org/3/movie/533535/images?api_key=${API_KEY}&include_image_language=null`)
-    .then(response => response.json())
-    .then(still => {
-      console.log(still.backdrops);
-      for (let i = 0; i < 5; i++) {
-        stillcut(still.backdrops[i].file_path);
-    }})
+/* 스틸컷 */
+fetch(imgApi)
+  .then((response) => response.json())
+  .then((still) => {
+    console.log(still.backdrops);
+    for (let i = 0; i < 5; i++) {
+      stillCut(still.backdrops[i].file_path);
+    }
+  });
 
-function stillcut(img) {
-  const imggs = document.createElement('div');
-  imggs.className = 'stillcut'
-  imggs.innerHTML = `
+function stillCut(img) {
+  const imgs = document.createElement("div");
+  imgs.className = "still-cut";
+  imgs.innerHTML = `
       <img src="https://image.tmdb.org/t/p/w500${img}" alt="스틸컷 이미지"/>
-  `
-  document.getElementById('still').append(imggs);
+  `;
+  document.getElementById("still").append(imgs);
 }
 
 /* Credits */
