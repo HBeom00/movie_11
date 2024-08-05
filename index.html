@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>movie_11</title>
+    
     <!-- JS -->
+    <script src="http://www.youtube.com/iframe_api"></script>
     <script type="module" src="./js/common.js"></script>
+    <script type="module" src="./js/youtube.js"></script>
+    <script defer src="./js/main.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
+    <!------ 헤더 ------>
     <header id="header">
       <div class="inner">
         <a href="/index.html" id="logo"><img src="./img//logo.gif" alt="로고" /></a>
@@ -40,6 +45,48 @@
     </header>
     <span class="header-blank"></span>
 
+    <!------ 캐러셀 기능 ------>
+    <div class="carousel">
+      <ul class="slides"></ul>
+      <button class="nav prev">❮</button>
+      <button class="nav next">❯</button>
+      <div class="pagination"></div>
+    </div>
+    <!------ 예고편 유튜브 영상 ------>
+    <div id="preview-div">
+      <p id="preview-title">예고편</p>
+      <div id="youtube"></div>
+    </div>
+
+    <!------ 인기 영화 목록 ------>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">인기 영화</p>
+        <a href=".">더보기</a>
+      </div>
+      <div id="popular-list" class="movie-list"></div>
+    </div>
+
+    <!------ 현재 상영 중 영화 목록 ------>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">현재 상영 중</p>
+        <a href=".">더보기</a>
+      </div>
+      <div id="playing-list" class="movie-list"></div>
+    </div>
+
+    <!------ 상영 예정 영화 목록 ------>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">상영 예정</p>
+        <a href=".">더보기</a>
+      </div>
+      <div id="coming-list" class="movie-list"></div>
+    </div>
+
+  </head>
+  <body>
     <p>11조 레포지토리 입니다.</p>
     <p>dev branch</p>
   </body>
