@@ -1,47 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/list.css">
-  <link rel="stylesheet" href="./css/reset.css">
-  <script src="./js/list.js"></script>
-</head>
-<body>
-  
-    <div class="header">
-        <p>로고</p>
-        <div class="header4">
-           <p>인기순위</p>
-        <p>현재 상영중</p>
-        <p>상영 예정</p>
-        </div>
-       
-      </div>
-      <div class="header2">
-      <input type="text" id="search-input" placeholder="Search for a movie...">
-     
-      <button id="search-button">검색</button>
-     </div>
-      <div class="header3">
-        <p>상영 예정</p>
-        </div>
-        <div id="cardWrap"> </div>
-
-      <div class="card">
-        <img src="img-path" class="img">
-
-        </div>
-      </div>
-      </div> 
-</body>
-</html>
-
-
-=======
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,12 +10,18 @@
 
     <!-- JS -->
     <script type="module" src="./js/common.js"></script>
-    <script type="module" src="./js/list.js"></script>
+    <script type="module" src="./js/detail.js"></script>
 
     <!-- CSS -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/list.css" />
+    <link rel="stylesheet" href="./css/detail.css" />
   </head>
   <body>
     <header id="header">
@@ -88,8 +52,39 @@
     <span class="header-blank"></span>
 
     <div id="wrap">
-      <ul id="movie-list"></ul>
+      <!-- 상세 정보 -->
+      <div id="detail">
+        <div id="bg-img"></div>
+
+        <div class="inner">
+          <!-- 영화 포스터 -->
+          <div id="movie-poster"></div>
+
+          <div class="info-area">
+            <!-- 영화 정보 -->
+            <div id="movie-info"></div>
+
+            <!-- 출연진 -->
+            <div class="credit">
+              <div class="sub-title">출연진</div>
+              <div id="actor-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 댓글 -->
+      <div class="comment-box">
+        <div class="sub-title">Review</div>
+        <ul id="comment-list"></ul>
+
+        <div id="is-login">
+          <input type="text" id="user-comment" />
+          <button id="comment-btn">send</button>
+        </div>
+
+        <div id="is-logout" style="display: none">리뷰를 작성하시려면 <a href="/login.html">로그인</a> 해주세요.</div>
+      </div>
     </div>
   </body>
 </html>
->>>>>>> 2508fc1f34bce47fcc44fd57b436aff8cb4edb33
