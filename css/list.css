@@ -67,7 +67,7 @@ div#more-btn {
   justify-content: center;
   border-top: 4px solid #cabdeb;
   padding: 24px 80px;
-  margin: 100px auto 140px;
+  margin: 100px auto 0;
   color: #cabdeb;
   font-size: 18px;
   font-weight: 700;

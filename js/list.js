@@ -31,14 +31,14 @@ let loadMovie = () => {
         document.getElementById("movie-list").append(movieCard);
       });
 
-      if (nowPage < data.total_pages) {
-        if (sessionStorage.getItem(category) !== null) {
-          while (nowPage < sessionStorage.getItem(category)) {
-            nowPage++;
-            loadMovie();
-          }
+      if (sessionStorage.getItem(category) !== null) {
+        while (nowPage < sessionStorage.getItem(category)) {
+          nowPage++;
+          loadMovie();
         }
+      }
 
+      if (nowPage < data.total_pages) {
         let moreMovie = document.createElement("div");
         moreMovie.id = "more-btn";
         moreMovie.innerText = `Load More ( ${nowPage} / ${data.total_pages} )`;
