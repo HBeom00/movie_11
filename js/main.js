@@ -90,7 +90,6 @@ function initCarousel() {
       }, 500);
     }
     updateDots();
-    resetInterval();
   }
 
   function updateDots() {

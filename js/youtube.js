@@ -14,7 +14,6 @@ fetch(playingURL)
         .then((response) => response.json())
         .then((response) => {
           response.results.forEach((movie) => {
-            console.log(movie);
             if (movie.type === "Teaser") {
               let playBox = document.createElement("div");
               playBox.setAttribute("class", "box");
