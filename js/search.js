@@ -15,10 +15,10 @@ function initializeSearch() {
   displayedMovieIds.clear(); // 표시된 영화 IDs 초기화
   searchResult(currentPage);
 }
-
+initializeSearch();
 // 영화 검색 결과를 가져옵니다.
 function searchResult(page = 1) {
-  const query = document.getElementById("search_movie").value;
+  const query = location.search.replace("?", "");
   searchQuery = query; // 현재 쿼리를 업데이트
 
   if (!query) {
@@ -74,15 +74,24 @@ function searchResult(page = 1) {
           // 새 영화 ID를 표시된 영화 IDs에 추가
           displayedMovieIds.add(movie.id);
 
+          const score = Math.round(movie.vote_average / 2);
+
           const cardElement = document.createElement("div");
           cardElement.className = "card";
 
           cardElement.innerHTML = `
-                    <div class="card-content">
-                        <img src="${BASE_IMAGE_URL}${movie.poster_path}" alt="${movie.title} 포스터" class="poster-img" onclick="showMovieId(${movie.id})" />
-                    </div>
-                    <h3>${movie.title}</h3>
-                `;
+          <a href="/detail.html?${movie.id}">
+            <div class="poster"><img src="${BASE_IMAGE_URL}${movie.poster_path}" alt="${movie.title} 포스터" class="poster-img"></div>
+            <div class="info">
+              <div class="release-date">${movie.release_date}</div>
+              <div class="title">${movie.title}</div>
+              <div class="vote">
+                <img src="./img/popcorn-${score}.png" alt="${score}점">
+                <span id="average">(${movie.vote_average})</span>
+              </div>
+            </div>
+          </a>
+        `;
 
           searchResultDiv.appendChild(cardElement);
         });

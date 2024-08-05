@@ -10,12 +10,12 @@
 
     <!-- JS -->
     <script type="module" src="./js/common.js"></script>
-    <script src="./js/search.js"></script>
+    <script src="./js/list.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="/css/search.css" />
+    <link rel="stylesheet" href="./css/list.css" />
   </head>
   <body>
     <header id="header">
@@ -45,14 +45,8 @@
     </header>
     <span class="header-blank"></span>
 
-    <div class="movie-wrap">
-      <div id="result-count-container">
-        <div id="result-count"></div>
-        <div id="load-more"></div>
-      </div>
-      <div class="searchResult" id="searchResult">
-        <!-- 영화들 나오는 곳 -->
-      </div>
+    <div id="wrap">
+      <ul id="movie-list"></ul>
     </div>
   </body>
 </html>

@@ -10,12 +10,18 @@
 
     <!-- JS -->
     <script type="module" src="./js/common.js"></script>
-    <script src="./js/search.js"></script>
+    <script type="module" src="./js/detail.js"></script>
 
     <!-- CSS -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="/css/search.css" />
+    <link rel="stylesheet" href="./css/detail.css" />
   </head>
   <body>
     <header id="header">
@@ -45,13 +51,39 @@
     </header>
     <span class="header-blank"></span>
 
-    <div class="movie-wrap">
-      <div id="result-count-container">
-        <div id="result-count"></div>
-        <div id="load-more"></div>
+    <div id="wrap">
+      <!-- 상세 정보 -->
+      <div id="detail">
+        <div id="bg-img"></div>
+
+        <div class="inner">
+          <!-- 영화 포스터 -->
+          <div id="movie-poster"></div>
+
+          <div class="info-area">
+            <!-- 영화 정보 -->
+            <div id="movie-info"></div>
+
+            <!-- 등장인물 -->
+            <div class="credit">
+              <div class="sub-title">등장인물</div>
+              <div id="actor-list"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="searchResult" id="searchResult">
-        <!-- 영화들 나오는 곳 -->
+
+      <!-- 댓글 -->
+      <div class="comment-box">
+        <div class="sub-title">Review</div>
+        <ul id="comment-list"></ul>
+
+        <div id="is-login">
+          <input type="text" id="user-comment" />
+          <button id="comment-btn">send</button>
+        </div>
+
+        <div id="is-logout" style="display: none">리뷰를 작성하시려면 <a href="/login.html">로그인</a> 해주세요.</div>
       </div>
     </div>
   </body>

@@ -1,3 +1,14 @@
+/* 0802 준호 추가 */
+*,
+*:before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+/* 기존 */
 html,
 body,
 div,
