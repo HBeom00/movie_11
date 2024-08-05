@@ -1,0 +1,77 @@
+ul#movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px 16px;
+}
+ul#movie-list li {
+  width: calc(20% - 12.8px);
+}
+@media (max-width: 1240px) {
+  ul#movie-list li {
+    width: calc(25% - 12.8px);
+  }
+}
+@media (max-width: 740px) {
+  ul#movie-list li {
+    width: calc(50% - 12.8px);
+  }
+}
+ul#movie-list li a {
+  display: block;
+}
+ul#movie-list li a .poster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 0;
+  padding: 71.4% 0;
+  overflow: hidden;
+}
+ul#movie-list li a .poster img {
+  width: 100%;
+  transition: 0.5s;
+}
+ul#movie-list li a .poster:hover img {
+  transform: scale(1.1);
+}
+
+ul#movie-list li a .info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  color: #fff;
+}
+ul#movie-list li a .info .release-date {
+  font-size: 14px;
+}
+ul#movie-list li a .info .title {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+ul#movie-list li a .vote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+ul#movie-list li a .vote img {
+  height: 18px;
+}
+
+div#more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 4px solid #cabdeb;
+  padding: 24px 80px;
+  margin: 100px auto 140px;
+  color: #cabdeb;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}

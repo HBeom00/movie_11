@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./img/icon.ico" />
+
+    <!-- JS -->
+    <script type="module" src="./js/common.js"></script>
+    <script src="./js/search.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="/css/search.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="inner">
+        <a href="/index.html" id="logo"></a>
+
+        <ul id="category">
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
+        </ul>
+
+        <div id="util">
+          <a href="/login.html" id="login">login</a>
+          <a href="javascript:;" id="logout" style="display: none">logout</a>
+
+          <div id="search">
+            <img src="./img//search.png" alt="검색" class="open" />
+            <img src="./img//close.png" alt="닫기" class="close" />
+          </div>
+        </div>
+      </div>
+      <div id="search-area">
+        <input type="text" name="search-input" id="search-input" />
+        <button id="search-button" onclick="onSearch();"><img src="./img//search.svg" alt="검색" /></button>
+      </div>
+    </header>
+    <span class="header-blank"></span>
+
+    <div class="movie-wrap">
+      <div id="result-count-container">
+        <div id="result-count"></div>
+        <div id="load-more"></div>
+      </div>
+      <div class="searchResult" id="searchResult">
+        <!-- 영화들 나오는 곳 -->
+      </div>
+    </div>
+  </body>
+</html>
