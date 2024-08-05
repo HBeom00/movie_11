@@ -82,7 +82,6 @@ span.header-blank {
 
 .movie-detail {
   position: absolute;
-  color: white;
   bottom: 5%;
   width: 120px;
   right: 2%;
@@ -93,9 +92,16 @@ span.header-blank {
   border: 1px solid white;
 }
 
+.movie-detail > a {
+  color: white;
+}
+
+.movie-detail > a:hover {
+  color: #fa5a50;
+}
+
 .movie-detail:hover {
   cursor: pointer;
-  color: #fa5a50;
   border: 1px solid #fa5a50;
 }
 
