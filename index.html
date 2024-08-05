@@ -4,8 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <!-- JS -->
+    <script type="module" src="./js/common.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css" />
   </head>
   <body>
+    <header id="header">
+      <div class="inner">
+        <a href="/index.html" id="logo"><img src="./img//logo.gif" alt="로고" /></a>
+
+        <ul id="category">
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
+        </ul>
+
+        <div id="util">
+          <a href="/login.html" id="login">login</a>
+          <a href="javascript:;" id="logout" style="display: none">logout</a>
+
+          <div id="search">
+            <img src="./img//search.png" alt="검색" class="open" />
+            <img src="./img//close.png" alt="닫기" class="close" />
+          </div>
+        </div>
+      </div>
+      <div id="search-area">
+        <button id="search-button" onclick="onSearch();"><img src="./img//search.svg" alt="검색" /></button>
+        <button><img src="./img//search.svg" alt="검색" /></button>
+      </div>
+    </header>
+    <span class="header-blank"></span>
+
     <p>11조 레포지토리 입니다.</p>
     <p>dev branch</p>
   </body>

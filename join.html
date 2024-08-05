@@ -10,12 +10,11 @@
 
     <!-- JS -->
     <script type="module" src="./js/common.js"></script>
-    <script src="./js/search.js"></script>
+    <script type="module" src="./js/join.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="/css/search.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css" />
   </head>
   <body>
     <header id="header">
@@ -23,9 +22,9 @@
         <a href="/index.html" id="logo"><img src="./img//logo.gif" alt="로고" /></a>
 
         <ul id="category">
-          <li><a href="/list.html?popular">Popular</a></li>
-          <li><a href="/list.html?now_playing">Now Playing</a></li>
-          <li><a href="/list.html?upcoming">Upcoming</a></li>
+          <li><a href="#none">Popular</a></li>
+          <li><a href="#none">Now Playing</a></li>
+          <li><a href="#none">Upcoming</a></li>
         </ul>
 
         <div id="util">
@@ -39,19 +38,24 @@
         </div>
       </div>
       <div id="search-area">
-        <input type="text" name="search-input" id="search-input" />
         <button id="search-button" onclick="onSearch();"><img src="./img//search.svg" alt="검색" /></button>
+        <button><img src="./img//search.svg" alt="검색" /></button>
       </div>
     </header>
     <span class="header-blank"></span>
 
-    <div class="movie-wrap">
-      <div id="result-count-container">
-        <div id="result-count"></div>
-        <div id="load-more"></div>
+    <div id="member-area">
+      <div id="title">
+        <h2>Join</h2>
       </div>
-      <div class="searchResult" id="searchResult">
-        <!-- 영화들 나오는 곳 -->
+
+      <div class="join-box">
+        <label for="join-id">ID</label>
+        <input type="text" name="id" id="join-id" placeholder="아이디" />
+        <label for="join-password">Password</label>
+        <input type="password" name="password" id="join-password" placeholder="비밀번호" />
+
+        <button id="join-btn" class="member-btn">Sign Up</button>
       </div>
     </div>
   </body>
