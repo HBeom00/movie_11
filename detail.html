@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./img/icon.ico" />
+
+    <!-- JS -->
+    <script type="module" src="./js/common.js"></script>
+    <script type="module" src="./js/detail.js"></script>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/detail.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="inner">
+        <a href="/index.html" id="logo"><img src="./img//logo.gif" alt="로고" /></a>
+
+        <ul id="category">
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
+        </ul>
+
+        <div id="util">
+          <a href="/login.html" id="login">login</a>
+          <a href="javascript:;" id="logout" style="display: none">logout</a>
+
+          <div id="search">
+            <img src="./img//search.png" alt="검색" class="open" />
+            <img src="./img//close.png" alt="닫기" class="close" />
+          </div>
+        </div>
+      </div>
+      <div id="search-area">
+        <input type="text" name="search-input" id="search-input" />
+        <button id="search-button" onclick="onSearch();"><img src="./img//search.svg" alt="검색" /></button>
+      </div>
+    </header>
+    <span class="header-blank"></span>
+
+    <div id="wrap">
+      <!-- 상세 정보 -->
+      <div id="detail">
+        <div id="bg-img"></div>
+
+        <div class="inner">
+          <!-- 영화 포스터 -->
+          <div id="movie-poster"></div>
+
+          <div class="info-area">
+            <!-- 영화 정보 -->
+            <div id="movie-info"></div>
+
+            <!-- 등장인물 -->
+            <div class="credit">
+              <div class="sub-title">등장인물</div>
+              <div id="actor-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 댓글 -->
+      <div class="comment-box">
+        <div class="sub-title">Review</div>
+        <ul id="comment-list"></ul>
+
+        <div id="is-login">
+          <input type="text" id="user-comment" />
+          <button id="comment-btn">send</button>
+        </div>
+
+        <div id="is-logout" style="display: none">리뷰를 작성하시려면 <a href="/login.html">로그인</a> 해주세요.</div>
+      </div>
+    </div>
+  </body>
+</html>
