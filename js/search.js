@@ -120,8 +120,8 @@ function hideLoadMoreButton() {
   }
 }
 
-//////////////////////////////////////////////////////////////////////////////////
+//현재페이지라는 변수가 페이지 수를 나타내느 상수값인데 왜 변수만 대입해야 인식을 하지 뭐지
 function loadMoreResults() {
-  // currentPage++;
-  // searchResult(currentPage); // 현재 페이지 번호를 증가시켜서 결과 가져오기
+  currentPage++;
+  searchResult(currentPage); // 현재 페이지 번호를 증가시켜서 결과 가져오기
 }
