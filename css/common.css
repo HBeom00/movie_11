@@ -7,6 +7,7 @@ body {
   width: 92%;
   max-width: 1920px;
   margin: 0 auto;
+  padding-top: 40px;
 }
 
 /* 상단 */
@@ -38,14 +39,21 @@ body {
 /* 상단 : 로고 */
 #header a#logo {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 24px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-weight: 700;
+  animation: blink 1s infinite;
 }
-#header a#logo img {
-  width: auto;
-  height: 80px;
+@keyframes blink {
+  0% {
+    border-right: 2px solid transparent;
+  }
+  100% {
+    border-right: 2px solid #fff;
+  }
 }
-
 /* 상단 : 카테고리 */
 #header #category {
   display: flex;
