@@ -10,57 +10,6 @@ body {
   background-image: linear-gradient(135deg, #252031 10%, #000 100%);
 }
 
-/*----------- header -----------*/
-#header {
-  padding: 20px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#header-div1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#logo {
-  margin-right: 100px;
-}
-
-#popural-movie,
-#playing-movie,
-#coming-movie {
-  font-family: "TTLaundryGothicB";
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-  margin: 0 24px;
-}
-
-#popural-movie:hover,
-#playing-movie:hover,
-#coming-movie:hover {
-  color: #fa5a50;
-}
-
-#search,
-#login,
-#sign-up {
-  font-family: "TTLaundryGothicB";
-  border: none;
-  background-color: transparent;
-  color: white;
-  font-size: 24px;
-  margin-left: 24px;
-}
-#search:hover,
-#login:hover,
-#sign-up:hover {
-  cursor: pointer;
-  color: #fa5a50;
-}
-
 /*----------- carousel -----------*/
 .carousel {
   position: relative;
