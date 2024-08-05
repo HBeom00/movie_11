@@ -64,7 +64,7 @@ function initCarousel() {
   const lastClone = $slides[$slides.length - 1].cloneNode(true);
 
   $ul.appendChild(firstClone);
-  $ul.insertBefore(lastClone, $slides[0]);
+  $ul.prepend(lastClone);
 
   const totalSlides = $slides.length + 2;
   $ul.style.transform = `translateX(-${100}%)`;
@@ -90,7 +90,6 @@ function initCarousel() {
       }, 500);
     }
     updateDots();
-    resetInterval();
   }
 
   function updateDots() {
@@ -108,18 +107,22 @@ function initCarousel() {
     if (index < totalSlides - 1) {
       moveToSlide(index + 1);
     }
+    clearInterval(autoslide);
+    autoslide = setInterval(moveToNextSlide, 3000);
   }
 
-  function moveToPreviousSlide() {
+  function moveToPrevSlide() {
     if (index > 0) {
       moveToSlide(index - 1);
     }
+    clearInterval(autoslide);
+    autoslide = setInterval(moveToNextSlide, 3000);
   }
 
   document.querySelector(".next").addEventListener("click", moveToNextSlide);
-  document.querySelector(".prev").addEventListener("click", moveToPreviousSlide);
+  document.querySelector(".prev").addEventListener("click", moveToPrevSlide);
 
-  setInterval(moveToNextSlide, 3000);
+  let autoslide = setInterval(moveToNextSlide, 3000);
 }
 
 // 현재 상영 중 영화 목록
