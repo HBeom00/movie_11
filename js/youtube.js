@@ -11,10 +11,7 @@ fetch(playingURL)
       let movieId = movieList[i].id;
       const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
       fetch(videoUrl)
-        .then((response) => {
-          loadScript();
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((response) => {
           response.results.forEach((movie) => {
             if (movie.type === "Teaser") {
@@ -36,7 +33,6 @@ fetch(playingURL)
   .catch((err) => console.error(err));
 
 let player;
-
 function onYouTubeIframeAPIReady(movieId) {
   player = new YT.Player(movieId, {
     videoId: movieId,
@@ -46,13 +42,4 @@ function onYouTubeIframeAPIReady(movieId) {
       playlist: movieId
     }
   });
-}
-
-function loadScript() {
-  if (typeof YT == "undefined" || typeof YT.Player == "undefined") {
-    var tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName("script")[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }
 }
