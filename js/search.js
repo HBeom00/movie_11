@@ -6,8 +6,9 @@ const ITEMS_PER_PAGE = 20;
 let totalResults = 0;
 let searchQuery = "";
 let displayedMovieIds = new Set(); // 표시된 영화 IDs를 저장하는 Set
-
+const category = location.search.replace("?", "");
 let check = 0;
+let nowPage = 1;
 
 // 초기 검색 함수
 function initializeSearch() {
@@ -16,7 +17,7 @@ function initializeSearch() {
   searchResult(currentPage);
 }
 initializeSearch();
-// 영화 검색 결과를 가져옵니다.
+
 function searchResult(page = 1) {
   const query = location.search.replace("?", "");
   searchQuery = query; // 현재 쿼리를 업데이트
@@ -56,13 +57,8 @@ function searchResult(page = 1) {
         check = 0;
         check = totalResults;
 
-        // "더보기" 버튼을 페이지 하단에 추가
-        if (totalResults > ITEMS_PER_PAGE) {
-          hideLoadMoreButton();
-          showLoadMoreButton();
-        } else {
-          hideLoadMoreButton();
-        }
+        // 페이지 초기화 후 load-more 버튼을 업데이트
+        updateLoadMoreButton(data.total_pages);
       }
 
       if (data.results.length > 0) {
@@ -78,27 +74,27 @@ function searchResult(page = 1) {
 
           const cardElement = document.createElement("div");
           cardElement.className = "card";
-
           cardElement.innerHTML = `
-          <a href="/detail.html?${movie.id}">
-            <div class="poster"><img src="${BASE_IMAGE_URL}${movie.poster_path}" onerror="this.src='./img/no-img.png'" alt="${movie.title} 포스터" class="poster-img"></div>
-            <div class="info">
-              <div class="release-date">${movie.release_date}</div>
-              <div class="title">${movie.title}</div>
-              <div class="vote">
-                <img src="./img/popcorn-${score}.png" alt="${score}점">
-                <span id="average">(${movie.vote_average})</span>
+            <a href="/detail.html?${movie.id}">
+              <div class="poster"><img src="${BASE_IMAGE_URL}${movie.poster_path}" onerror="this.src='./img/no-img.png'" alt="${movie.title} 포스터" class="poster-img"></div>
+              <div class="info">
+                <div class="release-date">${movie.release_date}</div>
+                <div class="title">${movie.title}</div>
+                <div class="vote">
+                  <img src="./img/popcorn-${score}.png" alt="${score}점">
+                  <span id="average">(${movie.vote_average})</span>
+                </div>
               </div>
-            </div>
-          </a>
-        `;
+            </a>
+          `;
 
           searchResultDiv.appendChild(cardElement);
         });
 
-        // "더보기" 버튼을 페이지 하단에 추가
-        if (page > 1 && searchResultDiv.childElementCount >= totalResults) {
+        if (nowPage >= data.total_pages) {
           hideLoadMoreButton();
+        } else {
+          updateLoadMoreButton(data.total_pages);
         }
       } else {
         searchResultDiv.innerHTML = "<p>결과가 없습니다.</p>";
@@ -112,25 +108,23 @@ function showMovieId(id) {
   alert(`영화 ID: ${id}`);
 }
 
-// "더보기" 버튼을 페이지에 추가
-function showLoadMoreButton() {
-  let loadMoreButton = document.createElement("button");
-  loadMoreButton.id = "load-more-button";
-  loadMoreButton.textContent = "더보기";
-  loadMoreButton.onclick = loadMoreResults;
-  document.getElementById("load-more").appendChild(loadMoreButton);
+function updateLoadMoreButton(totalPages) {
+  let moreMovie = document.createElement("div");
+  moreMovie.id = "more-btn";
+  moreMovie.innerText = `Load More ( ${nowPage} / ${totalPages} )`;
+  document.getElementById("more-btn") !== null && document.getElementById("more-btn").remove();
+  document.getElementById("wrap").append(moreMovie);
+  document.getElementById("more-btn").addEventListener("click", () => {
+    document.getElementById("more-btn").remove();
+    nowPage++;
+    sessionStorage.setItem(category, nowPage);
+    searchResult(nowPage);
+  });
 }
 
-// "더보기" 버튼을 페이지에서 제거합니다.
 function hideLoadMoreButton() {
-  const loadMoreButton = document.getElementById("load-more-button");
-  if (loadMoreButton) {
-    loadMoreButton.remove();
+  const loadMoreDiv = document.getElementById("more-btn");
+  if (loadMoreDiv) {
+    loadMoreDiv.remove();
   }
-}
-
-//현재페이지라는 변수가 페이지 수를 나타내느 상수값인데 왜 변수만 대입해야 인식을 하지 뭐지
-function loadMoreResults() {
-  currentPage++;
-  searchResult(currentPage); // 현재 페이지 번호를 증가시켜서 결과 가져오기
 }
