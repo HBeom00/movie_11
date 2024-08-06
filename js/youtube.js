@@ -1,12 +1,3 @@
-// Youtube API
-function loadYoutube() {
-  var tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-await loadYoutube();
-
 // API KEY 값
 const API_KEY = "55c98ffe62df5cbb6d68882dde4d2f2c";
 // 현재 상영 영화 URL
@@ -21,7 +12,8 @@ fetch(playingURL)
       const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
       fetch(videoUrl)
         .then((response) => response.json())
-        .then((response) => {
+        .then(async (response) => {
+          await loadYoutube;
           response.results.forEach((movie) => {
             if (movie.type === "Teaser") {
               let playBox = document.createElement("div");
@@ -52,3 +44,10 @@ function onYouTubeIframeAPIReady(movieId) {
     }
   });
 }
+// Youtube API
+const loadYoutube = () => {
+  var tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+};
