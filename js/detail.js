@@ -6,6 +6,11 @@ const creditApi = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key
 const imgApi = `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&include_image_language=null`;
 const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
 
+fetch("https://www.youtube.com/iframe_api")
+  .then((response) => {
+    console.log("good");
+  })
+  .catch((err) => console.error(err));
 /* Detail */
 fetch(detailApi)
   .then((response) => response.json())
