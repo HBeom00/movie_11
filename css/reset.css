@@ -3,6 +3,7 @@
 *:before,
 *::after {
   box-sizing: border-box;
+  font-family: "Goorm Sans", sans-serif !important;
 }
 a {
   text-decoration: none;
@@ -112,7 +113,7 @@ section {
   display: block;
 }
 body {
-  line-height: 1;
+  line-height: 1.2;
 }
 ol,
 ul {
@@ -133,7 +134,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-
-
-

@@ -1,4 +1,5 @@
 body {
+  min-width: 440px;
   min-height: 100vh;
   opacity: 0;
   background: linear-gradient(135deg, #252031 10%, #000 100%);
@@ -10,6 +11,29 @@ body {
   padding: 40px 0 80px;
 }
 
+/* 상,하단 이동 버튼 */
+div#fixedBtn {
+  z-index: 101;
+  position: fixed;
+  bottom: 4%;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0;
+  line-height: 1;
+}
+div#fixedBtn div {
+  cursor: pointer;
+}
+div#fixedBtn img {
+  width: 36px;
+}
+
+div#fixedBtn #bottom-btn {
+  transform: rotate(180deg);
+}
+
 /* 상단 */
 #header {
   z-index: 101;
@@ -17,8 +41,12 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  min-width: 440px;
   background-color: #252031;
   transition: 0.5s;
+}
+header#header.search-on {
+  background-color: #252031 !important;
 }
 .header-blank {
   display: block;
@@ -85,6 +113,7 @@ body {
   transform: translateX(-50%);
   transition: 0.3s;
 }
+#header #category a.now:after,
 #header #category a:hover:after {
   width: 100%;
 }
@@ -105,11 +134,78 @@ body {
   font-size: 16px;
 }
 #header #util #search {
+  font-size: 0;
+  line-height: 1;
   cursor: pointer;
 }
 #header #util #search img {
   width: 24px;
   height: 24px;
+}
+#header #util #search .close {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+#header #util #search .close:before,
+#header #util #search .close:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+#header #util #search .close:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+#header #util #search .close:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+#header #util #search:hover .close:before {
+  animation: close 0.5s linear forwards;
+}
+#header #util #search:hover .close:after {
+  width: 0;
+  animation: close 0.5s linear 0.2s forwards;
+}
+
+@keyframes close {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+#header #util #search:hover .open {
+  animation: wave 1s linear infinite;
+}
+#header #util #search:hover .open {
+  animation: wave 1s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-4px, -1px) rotate(-6deg);
+  }
+  50% {
+    transform: translate(-1px, -4px) rotate(6deg);
+  }
+  70% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 #header #util #search .close,
 #header #util #search.on .open {
@@ -118,6 +214,31 @@ body {
 
 #header #util #search.on .close {
   display: block;
+}
+
+@media (max-width: 780px) {
+  #header .inner {
+    height: 100px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  span.header-blank {
+    height: 100px;
+  }
+
+  #header .inner a.logo-area {
+    position: static;
+    transform: translateY(0);
+  }
+  #header .inner #util {
+    position: static;
+    transform: translateY(0);
+  }
+  #header .inner #category {
+    order: 2;
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 /* 상단 : 검색 */
@@ -150,11 +271,14 @@ div#search-area input {
   outline: none;
 }
 div#search-area button {
-  background-color: 0;
   padding: 0;
   border: 0;
   background-color: transparent;
   margin-left: 12px;
+  cursor: pointer;
+}
+div#search-area button img {
+  width: 32px;
 }
 
 /* 회원가입, 로그인 */
@@ -243,7 +367,7 @@ div#member-area a.member-btn:hover {
   color: #252031;
 }
 
-/*---- 목록 검색 더보기 버튼 ----*/
+/* 목록,검색 더보기 버튼 */
 div#more-btn {
   position: relative;
   display: flex;
@@ -259,6 +383,7 @@ div#more-btn {
   cursor: pointer;
   transition: 0.3s;
 }
+
 div#more-btn:hover {
   color: #fff;
   border-top: 2px solid #cabdeb;
@@ -275,4 +400,16 @@ div#more-btn:before {
 }
 div#more-btn:hover:before {
   height: 100%;
+}
+
+/* 하단 출처표기 */
+#footer {
+  padding: 24px 0;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  opacity: 0.7;
+}
+#footer a {
+  color: #fff;
 }

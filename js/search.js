@@ -45,9 +45,8 @@ function searchResult(page = 1) {
   )
     .then((response) => response.json())
     .then((data) => {
-      const searchResultDiv = document.getElementById("searchResult");
+      const searchResultDiv = document.getElementById("movie-list");
       const resultCountDiv = document.getElementById("result-count");
-      const loadMoreDiv = document.getElementById("load-more");
 
       if (page === 1) {
         searchResultDiv.innerHTML = ""; // 초기화면에서 결과를 비우기
@@ -72,7 +71,7 @@ function searchResult(page = 1) {
 
           const score = Math.round(movie.vote_average / 2);
 
-          const cardElement = document.createElement("div");
+          const cardElement = document.createElement("li");
           cardElement.className = "card";
           cardElement.innerHTML = `
             <a href="/detail.html?${movie.id}">
