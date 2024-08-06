@@ -80,18 +80,6 @@ fetch(videoUrl)
   })
   .catch((err) => console.error(err));
 
-let player;
-function onYouTubeIframeAPIReady(movieId) {
-  player = new YT.Player(movieId, {
-    videoId: movieId,
-    playerVars: {
-      controls: 1,
-      mute: 1,
-      playlist: movieId
-    }
-  });
-}
-
 /* Credits */
 fetch(creditApi)
   .then((response) => response.json())
