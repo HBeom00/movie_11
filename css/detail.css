@@ -224,6 +224,42 @@ div#still .still-cut img {
   width: 100%;
 }
 
+@media (max-width: 1240px) {
+  /* .movie-card {
+    width: calc(25% - 24px);
+  }
+
+  #youtube {
+    flex-wrap: wrap;
+  }
+
+  .box {
+    width: calc(50% - 15px);
+  } */
+}
+
+@media (max-width: 780px) {
+  div#still {
+    flex-wrap: wrap;
+  }
+  div#still .still-cut {
+    width: calc(50% - 8px);
+  }
+  /* .movie-card {
+    width: calc(50% - 24px);
+  }
+
+  #youtube {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  #youtube .box {
+    width: 100%;
+  } */
+}
+
 /* 관련 영상 */
 div#video {
   display: flex;
