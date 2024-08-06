@@ -52,7 +52,7 @@ function onSearch() {
   if (typeof keyword === null || keyword === undefined || keyword === "") {
     alert("영화 제목을 입력하세요.");
   } else {
-    window.location = `/search.html?${keyword}`;
+    window.location = `./search.html?${keyword}`;
   }
 }
 document.getElementById("search-button").addEventListener("click", () => {

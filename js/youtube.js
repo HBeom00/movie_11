@@ -27,6 +27,17 @@ fetch(playingURL)
               onYouTubeIframeAPIReady(movie.key);
             }
           });
+
+          function onYouTubeIframeAPIReady(movieId) {
+            player = new YT.Player(movieId, {
+              videoId: movieId,
+              playerVars: {
+                controls: 1,
+                mute: 1,
+                playlist: movieId
+              }
+            });
+          }
         })
         .catch((err) => console.error(err));
     }
@@ -34,15 +45,12 @@ fetch(playingURL)
   .catch((err) => console.error(err));
 
 let player;
-function onYouTubeIframeAPIReady(movieId) {
-  player = new YT.Player(movieId, {
-    videoId: movieId,
-    playerVars: {
-      controls: 1,
-      mute: 1,
-      playlist: movieId
-    }
-  });
+// Youtube API
+function loadYoutube() {
+  var tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 // Youtube API
 function loadYoutube() {
