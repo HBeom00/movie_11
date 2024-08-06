@@ -1,12 +1,3 @@
-// Youtube API
-function loadYoutube() {
-  var tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-await loadYoutube();
-
 // API KEY 값
 const API_KEY = "55c98ffe62df5cbb6d68882dde4d2f2c";
 // 현재 상영 영화 URL
@@ -15,6 +6,7 @@ const playingURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API
 fetch(playingURL)
   .then((response) => response.json())
   .then((response) => {
+    loadYoutube();
     let movieList = response.results;
     for (let i = 0; i < 4; i++) {
       let movieId = movieList[i].id;
@@ -51,4 +43,11 @@ function onYouTubeIframeAPIReady(movieId) {
       playlist: movieId
     }
   });
+}
+// Youtube API
+function loadYoutube() {
+  var tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
