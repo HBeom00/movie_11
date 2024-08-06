@@ -3,6 +3,7 @@
 *:before,
 *::after {
   box-sizing: border-box;
+  font-family: "Goorm Sans", sans-serif !important;
 }
 a {
   text-decoration: none;
@@ -133,7 +134,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-
-
-

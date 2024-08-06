@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
+    <!-- FONT -->
+    <link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="style"
+      crossorigin
+      href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css"
+    />
+    <link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+
     <!-- favicon -->
     <link rel="shortcut icon" href="./img/icon.ico" />
 
@@ -29,8 +39,8 @@
         </ul>
 
         <div id="util">
-          <a href="/login.html" id="login">login</a>
-          <a href="javascript:;" id="logout" style="display: none">logout</a>
+          <a href="/login.html" id="login">Login</a>
+          <a href="javascript:;" id="logout" style="display: none">Logout</a>
 
           <div id="search">
             <img src="./img/search.png" alt="검색" class="open" />
@@ -46,15 +56,11 @@
     <span class="header-blank"></span>
 
     <div class="movie-wrap">
-      <div id="result-count-container">
-        <div id="result-count"></div>
-        <div id="load-more"></div>
-      </div> 
       <div id="wrap">
-    <div class="searchResult movie-list" id="searchResult">
-        <!-- 영화들 나오는 곳 -->
-        <ul id="movie-list"></ul>
-          </div> 
+        <div id="result-count"></div>
+        <div class="searchResult movie-list" id="searchResult">
+          <!-- 영화들 나오는 곳 -->
+          <ul id="movie-list"></ul>
         </div>
       </div>
     </div>
