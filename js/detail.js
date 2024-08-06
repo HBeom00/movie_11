@@ -4,11 +4,13 @@ const API_KEY = "d235a0d6390e11fb07dd3329c8492501";
 const detailApi = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=ko-KR`; //영화 상세 API
 const creditApi = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=ko-KR`;
 const imgApi = `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&include_image_language=null`;
+const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
 
 /* Detail */
 fetch(detailApi)
   .then((response) => response.json())
   .then((details) => {
+    document.getElementById("video-link").href = `https://www.youtube.com/results?search_query=${details.title}+Teaser`;
     document.getElementById(
       "bg-img"
     ).innerHTML = `<img src="https://image.tmdb.org/t/p/original${details.backdrop_path}" />`;
@@ -36,6 +38,56 @@ fetch(detailApi)
     });
   })
   .catch((err) => console.error(err));
+
+/* 스틸컷 */
+fetch(imgApi)
+  .then((response) => response.json())
+  .then((still) => {
+    for (let i = 0; i < 6; i++) {
+      stillCut(still.backdrops[i].file_path);
+    }
+  });
+
+function stillCut(img) {
+  const imgs = document.createElement("div");
+  imgs.className = "still-cut";
+  imgs.innerHTML = `
+      <img src="https://image.tmdb.org/t/p/w500${img}" alt="스틸컷 이미지"/>
+  `;
+  document.getElementById("still").append(imgs);
+}
+
+/* 관련 영상 */
+fetch(videoUrl)
+  .then((response) => response.json())
+  .then((response) => {
+    response.results.forEach((movie) => {
+      if (document.querySelectorAll("#video > .box").length < 3) {
+        let playBox = document.createElement("div");
+        playBox.setAttribute("class", "box");
+        let player = document.createElement("div");
+        player.setAttribute("id", movie.key);
+
+        playBox.append(player);
+        document.getElementById("video").append(playBox);
+
+        onYouTubeIframeAPIReady(movie.key);
+      }
+    });
+  })
+  .catch((err) => console.error(err));
+
+let player;
+function onYouTubeIframeAPIReady(movieId) {
+  player = new YT.Player(movieId, {
+    videoId: movieId,
+    playerVars: {
+      controls: 1,
+      mute: 1,
+      playlist: movieId
+    }
+  });
+}
 
 /* Credits */
 fetch(creditApi)
@@ -168,7 +220,7 @@ async function loadComment() {
   await docs.forEach((doc) => {
     let row = doc.data();
     let myComment;
-    if (row.id === userId) {
+    if (localStorage.getItem("login") === "yes" && row.id === userId) {
       myComment = ` 
         <button class="like">
           <img src="./img/like.png" alt="좋아요" class="off"/>
@@ -278,7 +330,7 @@ let controlComment = {
   _modify: function () {
     document.querySelectorAll("button.modify").forEach((modify) => {
       modify.addEventListener("click", (e) => {
-        modifyComment(e.target);
+        localStorage.getItem("login") === "yes" ? modifyComment(e.target) : alert("로그인이 되어있지 않습니다.");
       });
     });
   },
@@ -286,7 +338,7 @@ let controlComment = {
   _delete: function () {
     document.querySelectorAll("button.delete").forEach((modify) => {
       modify.addEventListener("click", (e) => {
-        deleteComment(e.target);
+        localStorage.getItem("login") === "yes" ? deleteComment(e.target) : alert("로그인이 되어있지 않습니다.");
       });
     });
   },

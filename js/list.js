@@ -49,6 +49,7 @@ let loadMovie = () => {
           document.getElementById("more-btn").remove();
           nowPage++;
           sessionStorage.setItem(category, nowPage);
+
           loadMovie();
         });
       }

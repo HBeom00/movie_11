@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="./img/icon.ico" />
 
     <!-- JS -->
+    <script src="http://www.youtube.com/iframe_api"></script>
     <script type="module" src="./js/common.js"></script>
     <script type="module" src="./js/detail.js"></script>
 
@@ -26,7 +27,7 @@
   <body>
     <header id="header">
       <div class="inner">
-        <a href="/index.html" id="logo"></a>
+        <a href="/index.html" class="logo-area"><span id="logo"></span></a>
 
         <ul id="category">
           <li><a href="/list.html?popular">Popular</a></li>
@@ -39,8 +40,8 @@
           <a href="javascript:;" id="logout" style="display: none">logout</a>
 
           <div id="search">
-            <img src="./img//search.png" alt="검색" class="open" />
-            <img src="./img//close.png" alt="닫기" class="close" />
+            <img src="./img/search.png" alt="검색" class="open" />
+            <img src="./img/close.png" alt="닫기" class="close" />
           </div>
         </div>
       </div>
@@ -73,17 +74,27 @@
         </div>
       </div>
 
-      <!-- 댓글 -->
-      <div class="comment-box">
+      <div class="container">
+        <!-- 스틸컷 -->
+        <div class="sub-title">스틸컷</div>
+        <div id="still"></div>
+
+        <!-- 관련 영상 -->
+        <div class="sub-title">관련영상 <a href="" target="_blank" id="video-link">더 찾아보기 +</a></div>
+        <div id="video"></div>
+
+        <!-- 댓글 -->
         <div class="sub-title">Review</div>
-        <ul id="comment-list"></ul>
+        <div class="comment-box">
+          <ul id="comment-list"></ul>
 
-        <div id="is-login">
-          <input type="text" id="user-comment" />
-          <button id="comment-btn">send</button>
+          <div id="is-login">
+            <input type="text" id="user-comment" />
+            <button id="comment-btn">send</button>
+          </div>
+
+          <div id="is-logout" style="display: none">리뷰를 작성하시려면 <a href="/login.html">로그인</a> 해주세요.</div>
         </div>
-
-        <div id="is-logout" style="display: none">리뷰를 작성하시려면 <a href="/login.html">로그인</a> 해주세요.</div>
       </div>
     </div>
   </body>
