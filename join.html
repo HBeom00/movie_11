@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="style"
+      crossorigin
+      href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css"
+    />
+    <link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./img/icon.ico" />
+
+    <!-- JS -->
+    <script type="module" src="./js/common.js"></script>
+    <script type="module" src="./js/join.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="inner">
+        <a href="/index.html" class="logo-area"><span id="logo"></span></a>
+
+        <ul id="category">
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
+        </ul>
+
+        <div id="util">
+          <a href="/login.html" id="login">Login</a>
+          <a href="javascript:;" id="logout" style="display: none">Logout</a>
+
+          <div id="search">
+            <img src="./img/search.png" alt="검색" class="open" />
+            <span class="close"></span>
+          </div>
+        </div>
+      </div>
+      <div id="search-area">
+        <input type="text" name="search-input" id="search-input" />
+        <button id="search-button"><img src="./img//search.png" alt="검색" /></button>
+      </div>
+    </header>
+    <span class="header-blank"></span>
+
+    <div id="member-area">
+      <div id="title">
+        <h2>Join</h2>
+      </div>
+
+      <div class="join-box">
+        <label for="join-id">ID</label>
+        <input type="text" name="id" id="join-id" placeholder="아이디" />
+        <label for="join-password">Password</label>
+        <input type="password" name="password" id="join-password" placeholder="비밀번호" />
+
+        <button id="join-btn" class="member-btn">Sign Up</button>
+      </div>
+    </div>
+
+    <div id="footer">Designed by 십일워 / Icons by <a href="https://icons8.kr/icons" target="_blank">ICONS 8</a></div>
+    <div id="fixedBtn">
+      <div id="top-btn"><img src="./img/top-btn.svg" alt="" /></div>
+
+      <div id="bottom-btn"><img src="./img/top-btn.svg" alt="" /></div>
+    </div>
+  </body>
+</html>

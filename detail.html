@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="style"
+      crossorigin
+      href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css"
+    />
+    <link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./img/icon.ico" />
+
+    <!-- JS -->
+    <script src="http://www.youtube.com/iframe_api"></script>
+    <script type="module" src="./js/common.js"></script>
+    <script type="module" src="./js/detail.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/detail.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="inner">
+        <a href="/index.html" class="logo-area"><span id="logo"></span></a>
+
+        <ul id="category">
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
+        </ul>
+
+        <div id="util">
+          <a href="/login.html" id="login">Login</a>
+          <a href="javascript:;" id="logout" style="display: none">Logout</a>
+
+          <div id="search">
+            <img src="./img/search.png" alt="검색" class="open" />
+            <span class="close"></span>
+          </div>
+        </div>
+      </div>
+      <div id="search-area">
+        <input type="text" name="search-input" id="search-input" />
+        <button id="search-button"><img src="./img//search.png" alt="검색" /></button>
+      </div>
+    </header>
+    <span class="header-blank"></span>
+
+    <div id="wrap">
+      <!-- 상세 정보 -->
+      <div id="detail">
+        <div id="bg-img"></div>
+
+        <div class="inner">
+          <!-- 영화 포스터 -->
+          <div id="movie-poster"></div>
+
+          <div class="info-area">
+            <!-- 영화 정보 -->
+            <div id="movie-info"></div>
+
+            <!-- 출연진 -->
+            <div class="credit">
+              <div class="sub-title">출연진</div>
+              <div id="actor-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- 스틸컷 -->
+        <div class="sub-title">스틸컷</div>
+        <div id="still"></div>
+
+        <!-- 관련 영상 -->
+        <div class="sub-title" id="rel-title">
+          관련영상 <a href="" target="_blank" id="video-link">더 찾아보기 +</a>
+        </div>
+        <div id="video"></div>
+
+        <!-- 댓글 -->
+        <div class="sub-title">Review</div>
+        <div class="comment-box">
+          <ul id="comment-list"></ul>
+
+          <div id="is-login">
+            <input type="text" id="user-comment" />
+            <button id="comment-btn">send</button>
+          </div>
+
+          <a href="./login.html" id="is-logout" style="display: none"
+            >리뷰를 작성하시려면 <span>로그인</span> 해주세요.</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">Designed by 십일워 / Icons by <a href="https://icons8.kr/icons" target="_blank">ICONS 8</a></div>
+    <div id="fixedBtn">
+      <div id="top-btn"><img src="./img/top-btn.svg" alt="" /></div>
+
+      <div id="bottom-btn"><img src="./img/top-btn.svg" alt="" /></div>
+    </div>
+  </body>
+</html>

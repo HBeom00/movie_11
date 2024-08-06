@@ -1,11 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>movie_11</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="style"
+      crossorigin
+      href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css"
+    />
+    <link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+
+    <!-- JS -->
+    <script src="http://www.youtube.com/iframe_api"></script>
+    <script type="module" src="./js/common.js"></script>
+    <script type="module" src="./js/youtube.js"></script>
+    <script defer src="./js/main.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <p>11조 레포지토리 입니다.</p>
+    <!------ 헤더 ------>
+    <header id="header">
+      <div class="inner">
+        <a href="/index.html" class="logo-area"><span id="logo"></span></a>
+
+        <ul id="category">
+          <li><a href="/list.html?popular">Popular</a></li>
+          <li><a href="/list.html?now_playing">Now Playing</a></li>
+          <li><a href="/list.html?upcoming">Upcoming</a></li>
+        </ul>
+
+        <div id="util">
+          <a href="/login.html" id="login">Login</a>
+          <a href="javascript:;" id="logout" style="display: none">Logout</a>
+
+          <div id="search">
+            <img src="./img/search.png" alt="검색" class="open" />
+            <span class="close"></span>
+          </div>
+        </div>
+      </div>
+      <div id="search-area">
+        <input type="text" name="search-input" id="search-input" />
+        <button id="search-button"><img src="./img/search.png" alt="검색" /></button>
+      </div>
+    </header>
+    <span class="header-blank"></span>
+
+    <!------ 캐러셀 기능 ------>
+    <div class="carousel">
+      <ul class="slides"></ul>
+      <button class="nav prev">❮</button>
+      <button class="nav next">❯</button>
+      <div class="pagination"></div>
+    </div>
+    <!------ 예고편 유튜브 영상 ------>
+    <div id="preview-div">
+      <p id="preview-title">예고편</p>
+      <div id="youtube"></div>
+    </div>
+
+    <!------ 인기 영화 목록 ------>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">인기 영화</p>
+        <a href="./list.html?popular">더보기</a>
+      </div>
+      <div id="popular-list" class="movie-list"></div>
+    </div>
+
+    <!------ 현재 상영 중 영화 목록 ------>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">현재 상영 중</p>
+        <a href="./list.html?now_playing">더보기</a>
+      </div>
+      <div id="playing-list" class="movie-list"></div>
+    </div>
+
+    <!------ 상영 예정 영화 목록 ------>
+    <div class="common-div">
+      <div class="common-title-box">
+        <p class="common-title">상영 예정</p>
+        <a href="./list.html?upcoming">더보기</a>
+      </div>
+      <div id="coming-list" class="movie-list"></div>
+    </div>
+
+    <div id="footer">Designed by 십일워 / Icons by <a href="https://icons8.kr/icons" target="_blank">ICONS 8</a></div>
+    <div id="fixedBtn">
+      <div id="top-btn"><img src="./img/top-btn.svg" alt="" /></div>
+
+      <div id="bottom-btn"><img src="./img/top-btn.svg" alt="" /></div>
+    </div>
   </body>
 </html>
