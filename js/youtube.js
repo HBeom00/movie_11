@@ -6,7 +6,6 @@ const playingURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API
 fetch(playingURL)
   .then((response) => response.json())
   .then((response) => {
-    loadYoutube();
     let movieList = response.results;
     for (let i = 0; i < 4; i++) {
       let movieId = movieList[i].id;
