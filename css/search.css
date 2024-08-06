@@ -50,6 +50,7 @@ body {
 
 /* 검색 결과 총 개수 스타일 */
 #result-count {
+  color: white;
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
@@ -63,22 +64,9 @@ body {
 
 /* 각 영화 카드 스타일 */
 .card {
-  /* display: flex;
-  flex-direction: column;
-  position: relative;
-  max-width: 200px; /* 카드의 최대 너비 설정 
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-  transition: transform 0.3s, box-shadow 0.3s; */
   width: calc(20% - 12.8px);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); */
-}
 .poster {
   display: flex;
   align-items: center;
@@ -119,13 +107,14 @@ body {
 
 /* 검색 결과가 없을 때 메시지 스타일 */
 .searchResult p {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 3rem;
-  max-width: 1280px;
+  padding: 80px 0;
+  color: white;
   margin: 0 auto;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 /* 전체 검색 결과 개수와 더보기 버튼을 포함하는 컨테이너 스타일 */
@@ -134,13 +123,6 @@ body {
   align-items: center;
 
   justify-content: space-around;
-}
-
-/* 총 결과 개수를 표시하는 div 스타일 */
-#result-count {
-  font-size: 16px;
-  color: #333;
-  font-weight: bold;
 }
 
 /* "더보기" 버튼 스타일 */
@@ -216,9 +198,11 @@ ul#movie-list li a .info {
   margin-top: 12px;
   color: #fff;
 }
+
 ul#movie-list li a .info .release-date {
   font-size: 14px;
 }
+
 ul#movie-list li a .info .title {
   font-size: 18px;
   line-height: 1.2;
@@ -233,18 +217,9 @@ ul#movie-list li a .vote {
 ul#movie-list li a .vote img {
   height: 18px;
 }
-
-div#more-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 4px solid #cabdeb;
-  padding: 24px 80px;
-  margin: 100px auto 0;
-  color: #cabdeb;
-  font-size: 18px;
+@import url("https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css");
+body {
+  overflow-x: hidden;
+  font-family: "Goorm Sans", sans-serif;
   font-weight: 700;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
 }

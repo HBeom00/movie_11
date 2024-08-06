@@ -44,8 +44,11 @@ fetch(popularURL)
       const $dot = document.createElement("div");
       $dot.classList.add("dot");
       if (index === 0) $dot.classList.add("active");
-      $dot.addEventListener("click", () => moveToSlide(index + 1));
       $pagination.appendChild($dot);
+      // $dot.addEventListener("click", () => {
+      //   moveToSlide(index + 1);
+      //   console.log("check event");
+      // });
     });
 
     // 무한 캐러셀 초기화

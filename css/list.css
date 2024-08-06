@@ -60,18 +60,3 @@ ul#movie-list li a .vote {
 ul#movie-list li a .vote img {
   height: 18px;
 }
-
-div#more-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 4px solid #cabdeb;
-  padding: 24px 80px;
-  margin: 100px auto 0;
-  color: #cabdeb;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
-}

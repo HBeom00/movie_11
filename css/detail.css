@@ -150,11 +150,11 @@ div#actor-list::-webkit-scrollbar {
 }
 div#actor-list::-webkit-scrollbar-track {
   border-radius: 6px;
-  background-color: #ffe4a8;
+  background-color: #fff;
 }
 div#actor-list::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  background-color: #ed8e00;
+  background-color: #93739c;
 }
 div#actor-list div.actor {
   pointer-events: none;
@@ -172,8 +172,8 @@ div#actor-list .actor .profile {
   justify-content: center;
   width: 100%;
   height: 0;
-  padding: 50% 0;
-  border-radius: 100%;
+  padding: 67% 0;
+  border-radius: 16px;
   overflow: hidden;
 }
 div#actor-list .actor .profile img {
@@ -201,12 +201,16 @@ div.container .sub-title {
   margin: 120px 0 24px;
   color: #fff;
   font-size: 36px;
-  color: #fff;
   font-weight: 700;
 }
 div.container .sub-title a {
+  transition: 0.3s;
   font-size: 16px;
   color: #fff;
+}
+
+div.container .sub-title a:hover {
+  color: #fa5a50;
 }
 
 /* 스틸컷 */
@@ -252,8 +256,10 @@ div.comment-box ul#comment-list {
   max-height: 400px;
   min-height: 200px;
   overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
+  background-color: transparent;
+  border-radius: 6px;
+  color: white;
+  border: 1px solid white;
 }
 div.comment-box ul li {
   display: flex;
@@ -261,7 +267,7 @@ div.comment-box ul li {
   padding: 18px 24px;
 }
 div.comment-box ul > li + li {
-  border-top: 1px solid #252031;
+  border-top: 1px solid white;
 }
 div.comment-box .hide-id {
   display: none !important;
@@ -277,7 +283,7 @@ div.comment-box .comment-area .comment {
 div.comment-box .comment-area .id {
   margin-top: 8px;
   font-size: 14px;
-  color: #333;
+  color: white;
 }
 
 /* 리뷰 : 버튼 */
@@ -371,8 +377,9 @@ div.comment-box #is-logout {
   min-height: 60px;
   margin-top: 16px;
   padding: 16px 24px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 1px solid white;
 }
 div.comment-box #is-logout {
   font-weight: 700;
@@ -396,9 +403,9 @@ div.comment-box #is-login input {
   outline: none;
 }
 div.comment-box #is-login button {
-  background-color: #252031;
-  color: #fff;
-  border: 1px solid #252031;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
   width: auto;
   height: 40px;
   padding: 0 24px;
@@ -406,4 +413,10 @@ div.comment-box #is-login button {
   margin-left: 12px;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+div.comment-box #is-login button:hover {
+  background-color: white;
+  color: black;
 }
