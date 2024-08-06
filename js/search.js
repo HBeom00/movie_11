@@ -74,7 +74,7 @@ function searchResult(page = 1) {
           const cardElement = document.createElement("li");
           cardElement.className = "card";
           cardElement.innerHTML = `
-            <a href="/detail.html?${movie.id}">
+            <a href="./detail.html?${movie.id}">
               <div class="poster"><img src="${BASE_IMAGE_URL}${movie.poster_path}" onerror="this.src='./img/no-img.png'" alt="${movie.title} 포스터" class="poster-img"></div>
               <div class="info">
                 <div class="release-date">${movie.release_date}</div>
