@@ -1,46 +1,3 @@
-<<<<<<< HEAD
-#cardWrap {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.movie-card {
-  margin: auto;
-  padding: auto;
-  width: 230px;
-  height: 350px;
-}
-.card-contents {
-  height: 100%;
-}
-.movie-title {
-  width: 100%;
-  height: 100%;
-}
-.movie-poster {
-  width: 100%;
-  height: 100%;
-}
-.header {
-  border: 1px red;
-  display: flex;
-  padding: 1px;
-  /* gap: 8px; */
-}
-
-.header3 {
-  display: flex;
-}
-.header4 {
-  display: flex;
-  gap: 5px;
-  margin-left: 8px;
-}
-.header2 {
-  justify-content: flex-end;
-=======
 ul#movie-list {
   display: flex;
   flex-wrap: wrap;
@@ -117,5 +74,4 @@ div#more-btn {
   text-align: center;
   cursor: pointer;
   transition: 0.3s;
->>>>>>> 2508fc1f34bce47fcc44fd57b436aff8cb4edb33
 }
