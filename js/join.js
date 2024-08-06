@@ -47,7 +47,7 @@ joinBtn.addEventListener("click", async function () {
       localStorage.setItem("id", isId);
       localStorage.setItem("password", isPassword);
       alert(`${isId}님 환영합니다!`);
-      window.location = "/index.html";
+      window.location = "./index.html";
     }
   }
 });
