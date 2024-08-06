@@ -5,7 +5,12 @@ const detailApi = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_K
 const creditApi = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=ko-KR`;
 const imgApi = `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&include_image_language=null`;
 const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
-
+const youtubeApi = "https://cors-anywhere.herokuapp.com/tps://www.youtube.com/iframe_api";
+fetch(youtubeApi)
+  .then((response) => {
+    console.log("good");
+  })
+  .catch((err) => console.error(err));
 /* Detail */
 fetch(detailApi)
   .then((response) => response.json())
