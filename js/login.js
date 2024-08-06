@@ -24,7 +24,7 @@ const loginPassword = document.getElementById("login-password");
 
 if (localStorage.getItem("login") === "yes") {
   alert("로그인 되어있습니다.");
-  window.location = "./index.html";
+  history.back();
 }
 
 loginBtn.addEventListener("click", async function () {
@@ -47,7 +47,7 @@ loginBtn.addEventListener("click", async function () {
         localStorage.setItem("password", isPassword);
 
         alert(`${isId}님 환영합니다!`);
-        window.location = "./index.html";
+        history.back();
       } else {
         alert("Password가 틀렸습니다.");
       }

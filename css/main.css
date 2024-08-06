@@ -266,6 +266,7 @@ li.movie .inner .movie-info {
 @media (max-width: 780px) {
   div.carousel {
     margin-bottom: 60px;
+    transition: 0.3s;
   }
 
   .background-img {
