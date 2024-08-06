@@ -18,7 +18,7 @@
 <br/><br/>
 
 ## ⭐ 배포URL
-
+https://hbeom00.github.io/movie_11/index.html
 <br/><br/>
 
 ## 🎞️ Preview
