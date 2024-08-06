@@ -153,68 +153,6 @@ li.movie .inner .movie-info {
 .pagination .dot.active {
   background-color: white;
 }
-@media (max-width: 740px) {
-  div.carousel {
-    margin-bottom: 60px;
-  }
-
-  .background-img {
-    display: none;
-  }
-  .slides li.movie {
-    height: auto;
-    transition: 0.3s;
-  }
-  li.movie .inner {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: translate(0, 0);
-    width: 100%;
-    height: auto;
-  }
-  li.movie .inner:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  li.movie .inner .poster-img {
-    max-width: 100%;
-    width: 100%;
-    opacity: 1;
-  }
-  li.movie .inner .movie-info {
-    position: absolute;
-    bottom: 24%;
-    left: 12%;
-    width: 75%;
-  }
-
-  .movie-detail {
-    width: 100px;
-    background-color: transparent;
-    height: 44px;
-    border-radius: 8px;
-    border: 1px solid white;
-    transition: 0.3s;
-  }
-
-  .movie-detail a {
-    font-size: 16px;
-  }
-
-  div.carousel .nav {
-    font-size: 32px;
-  }
-  div.carousel .pagination {
-    bottom: 16px;
-  }
-}
 
 /*----------- preview videoss -----------*/
 #preview-div {
@@ -292,35 +230,6 @@ li.movie .inner .movie-info {
   width: calc(20% - 24px);
 }
 
-@media (max-width: 1240px) {
-  .movie-card {
-    width: calc(25% - 22.5px);
-  }
-
-  #youtube {
-    flex-wrap: wrap;
-  }
-
-  .box {
-    width: calc(50% - 15px);
-  }
-}
-@media (max-width: 780px) {
-  .movie-card {
-    width: calc(50% - 15px);
-  }
-
-  #youtube {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  #youtube .box {
-    width: 100%;
-  }
-}
-
 .movie-card a {
   display: flex;
   align-items: center;
@@ -338,4 +247,96 @@ li.movie .inner .movie-info {
 
 .post-img:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 1240px) {
+  .movie-card {
+    width: calc(25% - 22.5px);
+  }
+
+  #youtube {
+    flex-wrap: wrap;
+  }
+
+  .box {
+    width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 780px) {
+  div.carousel {
+    margin-bottom: 60px;
+  }
+
+  .background-img {
+    display: none;
+  }
+  .slides li.movie {
+    height: auto;
+    padding-top: 0;
+    transition: 0.3s;
+  }
+  li.movie .inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    height: auto;
+  }
+  li.movie .inner:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  li.movie .inner .poster-img {
+    max-width: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+  li.movie .inner .movie-info {
+    position: absolute;
+    bottom: 24%;
+    left: 12%;
+    width: 75%;
+  }
+
+  .movie-detail {
+    width: 100px;
+    background-color: transparent;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid white;
+    transition: 0.3s;
+  }
+
+  .movie-detail a {
+    font-size: 16px;
+  }
+
+  div.carousel .nav {
+    font-size: 32px;
+  }
+  div.carousel .pagination {
+    bottom: 16px;
+  }
+
+  .movie-card {
+    width: calc(50% - 15px);
+  }
+
+  #youtube {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  #youtube .box {
+    width: 100%;
+  }
 }

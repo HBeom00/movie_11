@@ -11,7 +11,7 @@ ul#movie-list li {
     width: calc(25% - 12px);
   }
 }
-@media (max-width: 740px) {
+@media (max-width: 780px) {
   ul#movie-list li {
     width: calc(50% - 8px);
   }

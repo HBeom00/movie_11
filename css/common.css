@@ -10,6 +10,28 @@ body {
   margin: 0 auto;
   padding: 40px 0 80px;
 }
+/* 상,하단 이동 버튼 */
+div#fixedBtn {
+  z-index: 101;
+  position: fixed;
+  bottom: 4%;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0;
+  line-height: 1;
+}
+div#fixedBtn div {
+  cursor: pointer;
+}
+div#fixedBtn img {
+  width: 36px;
+}
+
+div#fixedBtn #bottom-btn {
+  transform: rotate(180deg);
+}
 
 /* 상단 */
 #header {
@@ -111,6 +133,8 @@ header#header.search-on {
   font-size: 16px;
 }
 #header #util #search {
+  font-size: 0;
+  line-height: 1;
   cursor: pointer;
 }
 #header #util #search img {
@@ -191,7 +215,7 @@ header#header.search-on {
   display: block;
 }
 
-@media (max-width: 740px) {
+@media (max-width: 780px) {
   #header .inner {
     height: 100px;
     flex-wrap: wrap;

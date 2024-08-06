@@ -78,3 +78,21 @@ document.addEventListener("scroll", function (e) {
   window.scrollY === 0 && document.getElementById("header").classList.remove("on");
   beforeY = window.scrollY;
 });
+
+// 탑버튼 클릭시 상단으로 부드럽게 스크롤
+const topBtn = document.querySelector("#top-btn");
+const bottomBtn = document.querySelector("#bottom-btn");
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+bottomBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: document.querySelector("body").scrollHeight,
+    behavior: "smooth"
+  });
+});

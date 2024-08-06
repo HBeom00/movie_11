@@ -287,7 +287,9 @@ async function deleteComment(btn) {
 }
 
 // 댓글 좋아요
+sessionStorage.removeItem("comment-scroll");
 async function likeComment(btn) {
+  sessionStorage.setItem("comment-scroll", document.getElementById("comment-list").scrollTop);
   let docId = btn.parentElement.parentElement.firstElementChild.innerText;
   let alreadyLike = localStorage.getItem(`${docId}like`);
 
@@ -354,6 +356,9 @@ let controlComment = {
         likeComment(e.target);
       });
       alreadyLike === null ? like.classList.remove("on") : like.classList.add("on");
+
+      const nowScroll = sessionStorage.getItem("comment-scroll");
+      document.getElementById("comment-list").scrollTop = nowScroll !== null && nowScroll;
     });
   }
 };

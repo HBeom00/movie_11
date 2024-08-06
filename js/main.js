@@ -112,7 +112,7 @@ function initCarousel() {
     }
   }
   window.addEventListener("resize", () => {
-    if (window.innerWidth <= 740) {
+    if (window.innerWidth <= 780) {
       addClassNow(0);
     } else {
       document.querySelector(".carousel").style.height = "";
