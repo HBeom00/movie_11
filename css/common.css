@@ -10,6 +10,7 @@ body {
   margin: 0 auto;
   padding: 40px 0 80px;
 }
+
 /* 상,하단 이동 버튼 */
 div#fixedBtn {
   z-index: 101;
