@@ -37,9 +37,11 @@ window.onload = function () {
 
   searchBtn.addEventListener("click", function () {
     if (!searchBtn.classList.contains("on")) {
+      document.getElementById("header").classList.add("search-on");
       searchBtn.classList.add("on");
       searchArea.style.cssText = "opacity: 1; transform: translateY(0);";
     } else {
+      document.getElementById("header").classList.remove("search-on");
       searchBtn.classList.remove("on");
       searchArea.style.cssText = "opacity: 0; transform: translateY(-100%);";
     }
@@ -53,6 +55,9 @@ function onSearch() {
     window.location = `/search.html?${keyword}`;
   }
 }
+document.getElementById("search-button").addEventListener("click", () => {
+  onSearch();
+});
 document.getElementById("search-input").addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     onSearch();
@@ -72,4 +77,22 @@ document.addEventListener("scroll", function (e) {
 
   window.scrollY === 0 && document.getElementById("header").classList.remove("on");
   beforeY = window.scrollY;
+});
+
+// 탑버튼 클릭시 상단으로 부드럽게 스크롤
+const topBtn = document.querySelector("#top-btn");
+const bottomBtn = document.querySelector("#bottom-btn");
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+bottomBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: document.querySelector("body").scrollHeight,
+    behavior: "smooth"
+  });
 });

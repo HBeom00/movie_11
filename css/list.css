@@ -8,12 +8,12 @@ ul#movie-list li {
 }
 @media (max-width: 1240px) {
   ul#movie-list li {
-    width: calc(25% - 12.8px);
+    width: calc(25% - 12px);
   }
 }
-@media (max-width: 740px) {
+@media (max-width: 780px) {
   ul#movie-list li {
-    width: calc(50% - 12.8px);
+    width: calc(50% - 8px);
   }
 }
 ul#movie-list li a {

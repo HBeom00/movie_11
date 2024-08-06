@@ -33,10 +33,14 @@ fetch(popularURL)
                 src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}"
                 alt="${movie.title}"
               />
+              <div class="inner">
               <img class="poster-img" src="https://image.tmdb.org/t/p/original/${movie.poster_path}"/>
+              <div class="movie-info">
               <div class="movie-title">${movie.title}</div>
               <div class="movie-content">${movie.overview}</div>
               <button class="movie-detail"><a href="/detail.html?${movie.id}">상세 정보</a></button>
+              </div>
+              </div>
               `;
       $ul.appendChild($li);
 
@@ -93,7 +97,27 @@ function initCarousel() {
       }, 500);
     }
     updateDots();
+    addClassNow(index);
   }
+  addClassNow(0);
+  function addClassNow(now) {
+    if (window.innerWidth <= 740) {
+      document.querySelectorAll(".slides .movie.now").length !== 0 &&
+        document.querySelector(".slides .movie.now").classList.remove("now");
+      document.querySelectorAll(".slides .movie")[now].classList.add("now");
+      document.querySelector(".carousel").style.height =
+        document.querySelectorAll(".slides .movie")[now].lastElementChild.children[0].clientHeight + "px";
+    } else {
+      document.querySelector(".carousel").style.height = "";
+    }
+  }
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 780) {
+      addClassNow(0);
+    } else {
+      document.querySelector(".carousel").style.height = "";
+    }
+  });
 
   function updateDots() {
     $dots.forEach((dot) => dot.classList.remove("active"));

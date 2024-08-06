@@ -2,6 +2,7 @@ const API_KEY = "d235a0d6390e11fb07dd3329c8492501";
 
 const category = location.search.replace("?", "");
 let nowPage = 1;
+document.getElementById(category).classList.add("now");
 
 let loadMovie = () => {
   const URL = `https://api.themoviedb.org/3/movie/${category}?api_key=${API_KEY}&language=ko-KR&region=kr&page=${nowPage}`;
