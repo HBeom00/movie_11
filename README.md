@@ -24,16 +24,6 @@
 ## 🎞️ Preview
 
 ![alt text](./readme/image.png)
-<br/>
-
-![alt text](./readme/main.gif)
-<br/>
-
-![alt text](./readme/list.gif)
-<br/>
-
-![alt text](./readme/detail.gif)
-
 <br/><br/>
 
 ## 🔥 목표
