@@ -19,11 +19,12 @@ fetch(playingURL)
               playBox.setAttribute("class", "box");
               let player = document.createElement("div");
               player.setAttribute("id", movie.key);
+              player.innerHTML = `
+                <iframe width="100%" src="https://www.youtube.com/embed/${movie.key}?controls=1&autoplay=0&mute=1&loop=1&playlist=${movie.key}&origin=https://hbeom00.github.io/movie_11/index.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              `;
 
               playBox.append(player);
               document.getElementById("youtube").append(playBox);
-
-              onYouTubeIframeAPIReady(movie.key);
             }
           });
         })
@@ -31,15 +32,3 @@ fetch(playingURL)
     }
   })
   .catch((err) => console.error(err));
-
-let player;
-function onYouTubeIframeAPIReady(movieId) {
-  player = new YT.Player(movieId, {
-    videoId: movieId,
-    playerVars: {
-      controls: 1,
-      mute: 1,
-      playlist: movieId
-    }
-  });
-}

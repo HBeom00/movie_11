@@ -49,10 +49,6 @@ fetch(popularURL)
       $dot.classList.add("dot");
       if (index === 0) $dot.classList.add("active");
       $pagination.appendChild($dot);
-      // $dot.addEventListener("click", () => {
-      //   moveToSlide(index + 1);
-      //   console.log("check event");
-      // });
     });
 
     // 무한 캐러셀 초기화
