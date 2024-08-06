@@ -60,7 +60,7 @@ li.movie .inner {
   margin: 0 auto;
 }
 li.movie .inner .poster-img {
-  max-width: 500px;
+  max-width: 400px;
   width: calc(60% - 40px);
   opacity: 1;
 }
