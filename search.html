@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <!-- FONT -->
-    <link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous" />
-    <link
-      rel="preload"
-      as="style"
-      crossorigin
-      href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css"
-    />
-    <link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
-
     <!-- favicon -->
     <link rel="shortcut icon" href="./img/icon.ico" />
 
@@ -25,8 +15,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/list.css" />
-    <link rel="stylesheet" href="./css/search.css" />
+    <link rel="stylesheet" href="/css/search.css" />
   </head>
   <body>
     <header id="header">
@@ -40,18 +29,18 @@
         </ul>
 
         <div id="util">
-          <a href="/login.html" id="login">Login</a>
-          <a href="javascript:;" id="logout" style="display: none">Logout</a>
+          <a href="/login.html" id="login">login</a>
+          <a href="javascript:;" id="logout" style="display: none">logout</a>
 
           <div id="search">
             <img src="./img/search.png" alt="검색" class="open" />
-            <span class="close"></span>
+            <img src="./img/close.png" alt="닫기" class="close" />
           </div>
         </div>
       </div>
       <div id="search-area">
         <input type="text" name="search-input" id="search-input" />
-        <button id="search-button"><img src="./img//search.png" alt="검색" /></button>
+        <button id="search-button" onclick="onSearch();"><img src="./img//search.svg" alt="검색" /></button>
       </div>
     </header>
     <span class="header-blank"></span>
@@ -64,13 +53,6 @@
           <ul id="movie-list"></ul>
         </div>
       </div>
-    </div>
-
-    <div id="footer">Designed by 십일워 / Icons by <a href="https://icons8.kr/icons" target="_blank">ICONS 8</a></div>
-    <div id="fixedBtn">
-      <div id="top-btn"><img src="./img/top-btn.svg" alt="" /></div>
-
-      <div id="bottom-btn"><img src="./img/top-btn.svg" alt="" /></div>
     </div>
   </body>
 </html>
