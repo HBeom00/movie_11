@@ -5,7 +5,6 @@ const detailApi = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_K
 const creditApi = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=ko-KR`;
 const imgApi = `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&include_image_language=null`;
 const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
-const youtubeApi = "https://cors-anywhere.herokuapp.com/tps://www.youtube.com/iframe_api";
 
 /* Detail */
 fetch(detailApi)
@@ -61,29 +60,24 @@ function stillCut(img) {
 }
 
 /* 관련 영상 */
-
-fetch(youtubeApi)
+fetch(videoUrl)
+  .then((response) => response.json())
   .then((response) => {
-    console.log("good");
-    fetch(videoUrl)
-      .then((response) => response.json())
-      .then((response) => {
-        document.getElementById("rel-title").style.display = response.results.length === 0 && "none";
-        response.results.forEach((movie) => {
-          if (document.querySelectorAll("#video > .box").length < 3) {
-            let playBox = document.createElement("div");
-            playBox.setAttribute("class", "box");
-            let player = document.createElement("div");
-            player.setAttribute("id", movie.key);
-
-            playBox.append(player);
-            document.getElementById("video").append(playBox);
-
-            onYouTubeIframeAPIReady(movie.key);
-          }
-        });
-      })
-      .catch((err) => console.error(err));
+    document.getElementById("rel-title").style.display = response.results.length === 0 && "none";
+    response.results.forEach((movie) => {
+      if (document.querySelectorAll("#video > .box").length < 3) {
+        let playBox = document.createElement("div");
+        playBox.setAttribute("class", "box");
+        let player = document.createElement("div");
+        player.setAttribute("id", movie.key);
+        player.innerHTML = `
+        
+			<iframe width="100%" src="https://www.youtube.com/embed/${movie.key}?controls=1&autoplay=0&mute=1&loop=1&playlist=${movie.key}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      `;
+        playBox.append(player);
+        document.getElementById("video").append(playBox);
+      }
+    });
   })
   .catch((err) => console.error(err));
 
