@@ -12,7 +12,10 @@ fetch(playingURL)
       let movieId = movieList[i].id;
       const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
       fetch(videoUrl)
-        .then((response) => response.json())
+        .then((response) => {
+          loadScript();
+          return response.json();
+        })
         .then((response) => {
           response.results.forEach((movie) => {
             if (movie.type === "Teaser") {
@@ -27,17 +30,6 @@ fetch(playingURL)
               onYouTubeIframeAPIReady(movie.key);
             }
           });
-
-          function onYouTubeIframeAPIReady(movieId) {
-            player = new YT.Player(movieId, {
-              videoId: movieId,
-              playerVars: {
-                controls: 1,
-                mute: 1,
-                playlist: movieId
-              }
-            });
-          }
         })
         .catch((err) => console.error(err));
     }
@@ -45,10 +37,23 @@ fetch(playingURL)
   .catch((err) => console.error(err));
 
 let player;
-// Youtube API
-function loadYoutube() {
-  var tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady(movieId) {
+  player = new YT.Player(movieId, {
+    videoId: movieId,
+    playerVars: {
+      controls: 1,
+      mute: 1,
+      playlist: movieId
+    }
+  });
+}
+
+function loadScript() {
+  if (typeof YT == "undefined" || typeof YT.Player == "undefined") {
+    var tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  }
 }
