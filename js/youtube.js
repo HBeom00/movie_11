@@ -6,14 +6,14 @@ const playingURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API
 fetch(playingURL)
   .then((response) => response.json())
   .then((response) => {
+    loadYoutube();
     let movieList = response.results;
     for (let i = 0; i < 4; i++) {
       let movieId = movieList[i].id;
       const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=ko-KR`;
       fetch(videoUrl)
         .then((response) => response.json())
-        .then(async (response) => {
-          await loadYoutube;
+        .then((response) => {
           response.results.forEach((movie) => {
             if (movie.type === "Teaser") {
               let playBox = document.createElement("div");
@@ -45,9 +45,9 @@ function onYouTubeIframeAPIReady(movieId) {
   });
 }
 // Youtube API
-const loadYoutube = () => {
+function loadYoutube() {
   var tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName("script")[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-};
+}
