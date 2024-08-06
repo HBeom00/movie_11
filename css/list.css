@@ -8,12 +8,12 @@ ul#movie-list li {
 }
 @media (max-width: 1240px) {
   ul#movie-list li {
-    width: calc(25% - 12.8px);
+    width: calc(25% - 12px);
   }
 }
 @media (max-width: 740px) {
   ul#movie-list li {
-    width: calc(50% - 12.8px);
+    width: calc(50% - 8px);
   }
 }
 ul#movie-list li a {
@@ -59,19 +59,4 @@ ul#movie-list li a .vote {
 
 ul#movie-list li a .vote img {
   height: 18px;
-}
-
-div#more-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 4px solid #cabdeb;
-  padding: 24px 80px;
-  margin: 100px auto 0;
-  color: #cabdeb;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
 }

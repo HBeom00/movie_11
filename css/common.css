@@ -20,6 +20,9 @@ body {
   background-color: #252031;
   transition: 0.5s;
 }
+header#header.search-on {
+  background-color: #252031 !important;
+}
 .header-blank {
   display: block;
   height: 80px;
@@ -111,6 +114,71 @@ body {
   width: 24px;
   height: 24px;
 }
+#header #util #search .close {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+#header #util #search .close:before,
+#header #util #search .close:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+#header #util #search .close:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+#header #util #search .close:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+#header #util #search:hover .close:before {
+  animation: close 0.5s linear forwards;
+}
+#header #util #search:hover .close:after {
+  width: 0;
+  animation: close 0.5s linear 0.2s forwards;
+}
+
+@keyframes close {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+#header #util #search:hover .open {
+  animation: wave 1s linear infinite;
+}
+#header #util #search:hover .open {
+  animation: wave 1s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-4px, -1px) rotate(-6deg);
+  }
+  50% {
+    transform: translate(-1px, -4px) rotate(6deg);
+  }
+  70% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 #header #util #search .close,
 #header #util #search.on .open {
   display: none;
@@ -150,11 +218,13 @@ div#search-area input {
   outline: none;
 }
 div#search-area button {
-  background-color: 0;
   padding: 0;
   border: 0;
   background-color: transparent;
   margin-left: 12px;
+}
+div#search-area button img {
+  width: 32px;
 }
 
 /* 회원가입, 로그인 */
@@ -241,4 +311,51 @@ div#member-area a.member-btn {
 div#member-area a.member-btn:hover {
   background-color: #cabdeb;
   color: #252031;
+}
+
+/* 목록,검색 더보기 버튼 */
+div#more-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid #cabdeb;
+  padding: 24px 80px;
+  margin: 100px auto 0;
+  color: #cabdeb;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+div#more-btn:hover {
+  color: #fff;
+  border-top: 2px solid #cabdeb;
+}
+div#more-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, #cabdeb -165%, transparent 100%);
+  transition: 0.3s;
+}
+div#more-btn:hover:before {
+  height: 100%;
+}
+
+/* 하단 출처표기 */
+#footer {
+  padding: 24px 0;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  opacity: 0.7;
+}
+#footer a {
+  color: #fff;
 }

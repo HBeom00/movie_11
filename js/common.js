@@ -37,9 +37,11 @@ window.onload = function () {
 
   searchBtn.addEventListener("click", function () {
     if (!searchBtn.classList.contains("on")) {
+      document.getElementById("header").classList.add("search-on");
       searchBtn.classList.add("on");
       searchArea.style.cssText = "opacity: 1; transform: translateY(0);";
     } else {
+      document.getElementById("header").classList.remove("search-on");
       searchBtn.classList.remove("on");
       searchArea.style.cssText = "opacity: 0; transform: translateY(-100%);";
     }
@@ -53,6 +55,9 @@ function onSearch() {
     window.location = `/search.html?${keyword}`;
   }
 }
+document.getElementById("search-button").addEventListener("click", () => {
+  onSearch();
+});
 document.getElementById("search-input").addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     onSearch();

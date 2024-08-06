@@ -43,9 +43,11 @@ fetch(detailApi)
 fetch(imgApi)
   .then((response) => response.json())
   .then((still) => {
-    for (let i = 0; i < 6; i++) {
-      stillCut(still.backdrops[i].file_path);
-    }
+    still.backdrops.forEach((img) => {
+      if (document.querySelectorAll("#still > .still-cut").length < 6) {
+        stillCut(img.file_path);
+      }
+    });
   });
 
 function stillCut(img) {
@@ -61,6 +63,7 @@ function stillCut(img) {
 fetch(videoUrl)
   .then((response) => response.json())
   .then((response) => {
+    document.getElementById("rel-title").style.display = response.results.length === 0 && "none";
     response.results.forEach((movie) => {
       if (document.querySelectorAll("#video > .box").length < 3) {
         let playBox = document.createElement("div");
