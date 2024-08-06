@@ -90,13 +90,15 @@ span.header-blank {
   height: 44px;
   border-radius: 12px;
   border: 1px solid white;
+  transition: 0.3s;
 }
 
 .movie-detail > a {
   color: white;
+  transition: 0.3s;
 }
 
-.movie-detail > a:hover {
+.movie-detail:hover > a {
   color: #fa5a50;
 }
 
@@ -149,7 +151,8 @@ span.header-blank {
 
 /*----------- preview videoss -----------*/
 #preview-div {
-  width: 1520px;
+  width: 92%;
+  max-width: 1920px;
   font-family: "TTLaundryGothicB";
   font-size: 40px;
   margin: 0 auto 100px auto;
@@ -161,22 +164,33 @@ span.header-blank {
 
 #youtube {
   display: flex;
-  gap: 40px;
+  gap: 30px;
 }
 
 .box {
-  width: 480px;
-  height: 300px;
+  position: relative;
+  width: calc(33.33% - 20px);
+}
+
+.box::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding: 28.125% 0;
 }
 
 .box iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
 }
 
 /*----------- movie list -----------*/
 .common-div {
-  width: 1520px;
+  width: 92%;
   font-family: "TTLaundryGothicB";
   font-size: 40px;
   margin: 0 auto 50px auto;
@@ -186,12 +200,14 @@ span.header-blank {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .common-title-box > a {
   text-decoration: none;
   color: white;
   font-size: 30px;
+  transition: 0.3s;
 }
 
 .common-title-box > a:hover {
@@ -205,11 +221,53 @@ span.header-blank {
 }
 
 .movie-card {
-  width: 280px;
-  height: 400px;
+  width: calc(20% - 24px);
+}
+
+@media (max-width: 1240px) {
+  .movie-card {
+    width: calc(25% - 24px);
+  }
+
+  #youtube {
+    flex-wrap: wrap;
+  }
+
+  .box {
+    width: calc(50% - 15px);
+  }
+}
+@media (max-width: 780px) {
+  .movie-card {
+    width: calc(50% - 24px);
+  }
+
+  #youtube {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  #youtube .box {
+    width: 100%;
+  }
+}
+
+.movie-card a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 0;
+  padding: 71.4% 0;
+  overflow: hidden;
 }
 
 .post-img {
   width: 100%;
-  height: 100%;
+  transition: 0.5s;
+}
+
+.post-img:hover {
+  transform: scale(1.1);
 }
