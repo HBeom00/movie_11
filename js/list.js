@@ -16,7 +16,7 @@ let loadMovie = () => {
         const movieCard = document.createElement("li");
         movieCard.classList = "card";
         movieCard.innerHTML = `
-        <a href="/detail.html?${movie.id}">
+        <a href="./detail.html?${movie.id}">
           <div class="poster"><img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" onerror="this.src='./img/no-img.png'" alt="${movie.title} 포스터"></div>
           <div class="info">
             <div class="release-date">${movie.release_date}</div>

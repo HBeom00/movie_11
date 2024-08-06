@@ -16,7 +16,7 @@ fetch(popularURL)
     for (let i = 5; i < 10; i++) {
       const $div = document.createElement("div");
       $div.classList.add("movie-card");
-      $div.innerHTML = `<a href="/detail.html?${movies[i].id}"><img
+      $div.innerHTML = `<a href="./detail.html?${movies[i].id}"><img
                 class="post-img"
                 src="https://image.tmdb.org/t/p/w500/${movies[i].poster_path}"
                 alt="img"
@@ -38,7 +38,7 @@ fetch(popularURL)
               <div class="movie-info">
               <div class="movie-title">${movie.title}</div>
               <div class="movie-content">${movie.overview}</div>
-              <button class="movie-detail"><a href="/detail.html?${movie.id}">상세 정보</a></button>
+              <button class="movie-detail"><a href="./detail.html?${movie.id}">상세 정보</a></button>
               </div>
               </div>
               `;
@@ -162,7 +162,7 @@ fetch(playingURL)
     for (let i = 10; i < 15; i++) {
       const $div = document.createElement("div");
       $div.classList.add("movie-card");
-      $div.innerHTML = `<a href="/detail.html?${movies[i].id}"><img
+      $div.innerHTML = `<a href="./detail.html?${movies[i].id}"><img
               class="post-img"
               src="https://image.tmdb.org/t/p/w500/${movies[i].poster_path}"
               alt="img"
@@ -182,7 +182,7 @@ fetch(comingURL)
     for (let i = 15; i < 20; i++) {
       const $div = document.createElement("div");
       $div.classList.add("movie-card");
-      $div.innerHTML = `<a href="/detail.html?${movies[i].id}"><img
+      $div.innerHTML = `<a href="./detail.html?${movies[i].id}"><img
               class="post-img"
               src="https://image.tmdb.org/t/p/w500/${movies[i].poster_path}"
               alt="img"
