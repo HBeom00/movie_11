@@ -51,3 +51,9 @@ joinBtn.addEventListener("click", async function () {
     }
   }
 });
+
+document.getElementById("join-password").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("join-btn").click();
+  }
+});

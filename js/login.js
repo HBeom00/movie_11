@@ -23,7 +23,6 @@ const loginId = document.getElementById("login-id");
 const loginPassword = document.getElementById("login-password");
 
 if (localStorage.getItem("login") === "yes") {
-  alert("로그인 되어있습니다.");
   history.back();
 }
 
@@ -54,5 +53,10 @@ loginBtn.addEventListener("click", async function () {
     } else {
       alert("존재하지 않는 ID입니다.");
     }
+  }
+});
+document.getElementById("login-password").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("login-btn").click();
   }
 });
